@@ -1,0 +1,11 @@
+.myHeroBaground {
+    background-image: url("../../public/images/heroThumbnail.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.test {
+    background-image: url("../../public/images/heroThumbnail.png");
+    background-size: cover;
+    background-position: center;
+}

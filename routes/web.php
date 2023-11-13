@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\Services;
 use App\Http\Controllers\Admin\TentangKami;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::get('/services/create', [Services::class, 'create'])->name('services.create');
 });
 
-Route::get('/', function () {
-    return Inertia::render('User/Index');
+// Route::get('/', function () {
+//     return Inertia::render('User/Index');
+// });
+
+Route::prefix('/')->name('user.')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/portfolio', [UserController::class, 'portfolio'])->name('portfolio');
 });
 
 
