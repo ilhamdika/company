@@ -38,10 +38,11 @@ export default function Index() {
                             </div>
                         </div>
                     </div>
-                    <div className='mt-10 mob' style={bgHero}>
+                    <div className='mt-10 mobile:h-100 mobile:w-full' style={bgHero}>
                         {/* <img src="/images/heroThumbnail.png" alt="Background" className="w-full h-full object-cover" /> */}
 
                             <img src="/images/key.png" alt="Elemen Atas" className="w-32 h-32 animate-bounce"/>
+                            <img src="/images/key.png" alt="Elemen Atas" className="w-32 h-32 motion-safe:animate-spin float-right"/>
                         {/* <div className="pt-10 absolute top-0 left-20 w-full h-full flex items-center justify-center">
                         </div> */}
                     </div>
