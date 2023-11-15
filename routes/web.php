@@ -48,6 +48,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
 Route::prefix('/')->name('user.')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
     Route::get('/portfolio', [UserController::class, 'portfolio'])->name('portfolio');
+    Route::get('/tentang-kami', [UserController::class, 'tentangKami'])->name('tentang-kami');
+    Route::get('/services', [UserController::class, 'services'])->name('services');
+
+    Route::get('berita', [UserController::class, 'berita'])->name('berita');
+    Route::get('artikel', [UserController::class, 'artikel'])->name('artikel');
 });
 
 

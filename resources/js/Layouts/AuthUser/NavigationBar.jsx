@@ -9,19 +9,19 @@ export default function NavigationBar ({text, click}){
     let Menu =[
         {
           name:"Home",
-          link: "prototype.index"
+          link: "user.index"
         },
         {
           name:"Portfolio",
-          link:"prototype.portfolio"
+          link:"user.portfolio"
         },
         {
-          name:"Artikel",
-          link: "prototype.about"
+          name:"Services",
+          link: "user.services"
         },
         {
           name:"Tentang Kami",
-          link: "prototype.about"
+          link: "user.tentang-kami"
         },
         
       ];
@@ -59,7 +59,9 @@ export default function NavigationBar ({text, click}){
       <div className='tablet:flex items-center justify-between py-4 tablet:px-10 px-7'>
       <div className='text-3xl cursor-pointer flex items-center
       dark:text-white'>
-        <img src="/images/logo.png" alt="Logo" className="w-20 h-20"/>
+        <Link href={route('user.index')}>
+            <img src="/images/logo.png" alt="Logo" className="w-20 h-20"/>
+        </Link>
       </div>
       
       <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-4 cursor-pointer tablet:hidden py-4'>
@@ -68,7 +70,7 @@ export default function NavigationBar ({text, click}){
       
       </div>
 
-      <ul className={`tablet:flex tablet:items-center tablet:pb-0 pb-12 absolute tablet:static  tablet:z-auto z-[-1] left-0 w-full tablet:w-auto mobile:bg-green-500 tablet:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ':'top-[-490px]'}`}>
+      <ul className={`tablet:flex tablet:items-center tablet:pb-0 pb-12 absolute tablet:static  tablet:z-auto z-[-1] left-0 w-full tablet:w-auto mobile:bg-green-500 tablet:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20':'top-[-490px]'}`}>
        {/* <li>
             <Link href='/'>Home</Link>
        </li>
@@ -81,7 +83,7 @@ export default function NavigationBar ({text, click}){
         {
           Menu.map((menu)=>(
             <li key={menu.name} className='text-xl tablet:my-0 my-7'>
-              <Link className='dark:text-white text-black hover:text-gray-400 duration-500 ml-5 mr-10'>
+              <Link href={route(menu.link)} className='dark:text-white text-black hover:text-gray-400 duration-500 ml-5 mr-10'>
                 {menu.name}
               </Link>
             </li>
@@ -94,8 +96,8 @@ export default function NavigationBar ({text, click}){
           </button>
           {isDropdownOpen && (
             <div className="absolute mobile:relative mt-2 p-2 rounded-md border">
-              <Link href="#" className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Berita</Link>
-              <Link href="#" className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Artikel</Link>
+              <Link href={route('user.berita')} className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Berita</Link>
+              <Link href={route('user.artikel')} className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Artikel</Link>
             </div>
           )}
         </div>

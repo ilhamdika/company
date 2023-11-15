@@ -1,7 +1,18 @@
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 
-export default function Portfolio(){
+export default function Portfolio({portfolios}){
+    // console.log(portfolios)
     return<LayoutPage>
-        <h1>port</h1>
+        <div className="mobile:pt-36">
+            <h1 className="font-semibold text-4xl flex justify-center items-center dark:text-white">Portofolio Kami</h1>
+                <div className="grid grid-cols-6 laptop:flex-row dekstop:flex-row mobile:grid-cols-2 rounded-xl mobile:h-auto mt-10">
+                    
+                    {portfolios.map((portfolio)=>(
+                        <div key={portfolio.id}>
+                            <img src={`/storage/${portfolio.image}`} className="rounded-xl"/> 
+                        </div>
+                    ))}
+                </div>
+        </div>
     </LayoutPage>
 }
