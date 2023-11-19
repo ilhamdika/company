@@ -2,7 +2,7 @@ import { Link } from "@inertiajs/react";
 import { useState } from "react";
 import { GrUserAdmin } from "react-icons/gr";
 import { MdDashboard } from "react-icons/md";
-import { AiOutlineFileText } from "react-icons/ai";
+import { AiFillAlert, AiOutlineFileText } from "react-icons/ai";
 import { SiAboutdotme } from "react-icons/si";
 import { FaBeer } from 'react-icons/fa';
 import { HiOutlineViewList } from "react-icons/hi";
@@ -32,6 +32,16 @@ export default function SideBar({click, icon}) {
             name: "Services",
             link: 'admin.dashboard.services.index',
             src:  <AiOutlineClear size="32" color="black" className="dark:bg-slate-200 rounded-xl"/>,
+        },
+        {
+            name: "News",
+            link: 'admin.dashboard.news.index',
+            src: <AiFillAlert size="32" color="black" className="dark:bg-slate-200 rounded-xl"/>
+        },
+        {
+            name: "Artikel",
+            link: 'admin.dashboard.artikel.index',
+            src: <FaBeer size="32" color="black" className="dark:bg-slate-200 rounded-xl"/>
         }
        
     ];

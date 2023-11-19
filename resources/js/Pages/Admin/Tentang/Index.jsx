@@ -4,6 +4,8 @@ import { DotLoader } from "react-spinners";
 import PrimaryButton from "@/Components/PrimaryButton";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
 
 
 export default function Index() {
@@ -14,6 +16,13 @@ export default function Index() {
             setLoading(false)
         },2000)
     },[])
+
+    const [editorData, setEditorData] = useState('');
+
+  const handleEditorChange = (event, editor) => {
+    const data = editor.getData();
+    setEditorData(data);
+  };
     
     return(
         <Authenticated>
@@ -64,10 +73,19 @@ export default function Index() {
                                 />
                                 <textarea className="w-full h-96" name="misi"></textarea>
                             </div>
+
                         </div>
+                        {/* <CKEditor
+                            editor={ClassicEditor}
+                            data={editorData}
+                            onChange={handleEditorChange}
+                            name="deskripsi"
+                        /> */}
                         <PrimaryButton className="bg-green-500 dark:bg-green-500">
                             Save
                         </PrimaryButton>
+
+                        
                 </form>
                 </div>
 }

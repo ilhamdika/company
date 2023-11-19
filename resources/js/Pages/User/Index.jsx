@@ -3,7 +3,6 @@ import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 import { Link } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
-import styles from '../../../css/style.css'
 import Card from "@/Components/Card";
 import AOS from 'aos';
 

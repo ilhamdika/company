@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\LandingAdmin;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -34,11 +36,22 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('portfolio', PortfolioController::class);
+    Route::resource('news', NewsController::class);
 
     Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
     Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');
     Route::get('/services', [Services::class, 'index'])->name('services.index');
     Route::get('/services/create', [Services::class, 'create'])->name('services.create');
+
+    // Route::get('news', [NewsController::class, 'index'])->name('news.index');
+    // Route::get('news/create', [NewsController::class, 'create'])->name('news.create');
+    // Route::post('news_create', [NewsController::class, 'store'])->name('news.store');
+    // Route::get('news/{news}/edit', [NewsController::class, 'edit'])->name('news.edit');
+    // Route::delete('news/{news}', [NewsController::class, 'destroy'])->name('news.destroy');
+    // Route::put('news_update/{news}', [NewsController::class, 'update'])->name('news.update');
+
+    Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+    Route::get('artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
 });
 
 // Route::get('/', function () {
