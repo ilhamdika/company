@@ -53,14 +53,14 @@ export default function NavigationBar ({text, click}){
   };
 
     return (
-        <div className={`navbar ${visible ? 'mobile:show' : 'mobile:hidden'}`}>
+        <div className={`navbar ${visible ? 'mobile:block mobile:relative' : 'mobile:hidden'}`}>
 
         <div className='shadow-tablet w-full fixed-absolute top-0 left-0 mobile:fixed mobile:bg-green-500 '>
       <div className='tablet:flex items-center justify-between py-4 tablet:px-10 px-7'>
       <div className='text-3xl cursor-pointer flex items-center
       dark:text-white'>
         <Link href={route('user.index')}>
-            <img src="/images/logo.png" alt="Logo" className="w-20 h-20"/>
+            <img src="/images/logo.png" alt="Logo" className="w-20 h-20 mobile:w-12 mobile:h-12"/>
         </Link>
       </div>
       
@@ -70,7 +70,7 @@ export default function NavigationBar ({text, click}){
       
       </div>
 
-      <ul className={`tablet:flex tablet:items-center tablet:pb-0 pb-12 absolute tablet:static  tablet:z-auto z-[-1] left-0 w-full tablet:w-auto mobile:bg-green-500 tablet:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20':'top-[-490px]'}`}>
+      <ul className={`tablet:flex tablet:items-center tablet:pb-0 pb-12 absolute tablet:static  tablet:z-auto z-[-1] left-0 w-full tablet:w-auto mobile:bg-green-500 mobile:pb-1 tablet:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20':'top-[-490px]'}`}>
        {/* <li>
             <Link href='/'>Home</Link>
        </li>
@@ -91,11 +91,11 @@ export default function NavigationBar ({text, click}){
         }
        <li className='text-xl tablet:my-0 my-7'>
        <div className="relative group">
-          <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500">
+          <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500 mobile:ml-5">
             Berita & Artikel <AiFillCaretDown className="inline-block" />
           </button>
           {isDropdownOpen && (
-            <div className="absolute mobile:relative mt-2 p-2 rounded-md border">
+            <div className="absolute mobile:relative mobile:ml-5 mobile:border-none p-2 rounded-md border">
               <Link href={route('user.berita')} className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Berita</Link>
               <Link href={route('user.artikel')} className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Artikel</Link>
             </div>

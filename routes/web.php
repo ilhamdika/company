@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\Services;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\TentangKami;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +37,17 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('news', NewsController::class);
+    Route::resource('artikel', ArtikelController::class);
+    Route::resource('services', Services::class);
+    Route::resource('contact', ContactUsController::class);
 
     Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
     Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');
-    Route::get('/services', [Services::class, 'index'])->name('services.index');
-    Route::get('/services/create', [Services::class, 'create'])->name('services.create');
+    // Route::get('/services', [Services::class, 'index'])->name('services.index');
+    // Route::get('/services/create', [Services::class, 'create'])->name('services.create');
 
     // Route::get('news', [NewsController::class, 'index'])->name('news.index');
     // Route::get('news/create', [NewsController::class, 'create'])->name('news.create');
@@ -50,8 +56,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     // Route::delete('news/{news}', [NewsController::class, 'destroy'])->name('news.destroy');
     // Route::put('news_update/{news}', [NewsController::class, 'update'])->name('news.update');
 
-    Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel.index');
-    Route::get('artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
+    // Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+    // Route::get('artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
 });
 
 // Route::get('/', function () {
@@ -65,7 +71,10 @@ Route::prefix('/')->name('user.')->group(function () {
     Route::get('/services', [UserController::class, 'services'])->name('services');
 
     Route::get('berita', [UserController::class, 'berita'])->name('berita');
+    Route::get('berita/{berita:slug}', [UserController::class, 'berita_detail'])->name('berita_detail');
+
     Route::get('artikel', [UserController::class, 'artikel'])->name('artikel');
+    Route::get('artikel/{artikel:slug}', [UserController::class, 'artikel_detail'])->name('artikel_detail');
 });
 
 

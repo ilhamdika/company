@@ -35,7 +35,7 @@ export default function Topbar({header}) {
                                 {/* <Link href="/">
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-white" />
                                 </Link> */}
-                                Logo
+                               
                             </div>
 
                             {/* <div className="hidden space-x-8 laptop:-my-px laptop:ml-10 laptop:flex dark:text-white">

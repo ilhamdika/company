@@ -1,8 +1,10 @@
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
+import { Head } from "@inertiajs/react";
 
 export default function TentangKami() {
     return (
         <LayoutPage>
+            <Head title="Tentang Kami" />
             <div className="mobile:pt-36">
                 <h1 className="font-semibold text-4xl flex justify-center items-center dark:text-white">Tentang Kami</h1>
                 

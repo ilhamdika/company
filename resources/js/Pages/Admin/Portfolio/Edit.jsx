@@ -34,7 +34,7 @@ export default function Edit({auth, portfolio}){
      };
 
      return<Authenticated auth={auth}>
-     <Head title="Admin Add Portfolio" />
+     <Head title="Edit Portfolio" />
      <h1 className="text-3xl font-bold dark:text-white">Welcome to Admin Add Portfolio</h1>
 
      <form onSubmit={submit}>

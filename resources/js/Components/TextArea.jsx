@@ -25,6 +25,7 @@ export default function TextArea({
     return (
         <div className="flex flex-col items-start">
             <textarea
+               
                 name={name}
                 id={id}
                 value={value}

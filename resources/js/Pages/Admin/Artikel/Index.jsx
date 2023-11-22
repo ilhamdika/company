@@ -6,7 +6,9 @@ import { Head,  useForm } from '@inertiajs/react';
 import FlashMessage from "@/Components/FlashMessage";
 
 
-export default function Artikel({flashMessage}){
+export default function Artikel({flashMessage, artikels}){
+    // console.log(artikels)
+    const {delete: destroy} =useForm()
     return(
         <Authenticated>
              <Head title="Admin Add Portfolio" />
@@ -29,29 +31,31 @@ export default function Artikel({flashMessage}){
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-                                <td>1</td>
-								<td>
-									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5TdYsTZ2WFbJLwPwgbVfexWzppcvGaUxEcg&usqp=CAU" />
-									
+                        {artikels.map((artikel, i=1) => (
+							<tr key={artikel.id}>
+                                <td className="border border-gray-500">{i+1}</td>
+								<td className="border border-gray-500">
+                                    <img src={`/storage/${artikel.image}`} className="w-23 h-20" />
 								</td>
-								<td>Naruto</td>
-								
-								<td>
-                                    <div className="flex items-center justify-center h-full">
-
-                                    <Link>
-                                        <PrimaryButton className="bg-yellow-500 dark:bg-yellow-500 mobile:w-10">
+								<td className="border border-gray-500">{artikel.title}</td>
+								<td className="w-auto border border-gray-500">
+                                <div className="flex items-center justify-center h-full">
+                                    <Link href={route('admin.dashboard.artikel.edit', artikel.id)}>
+                                        <PrimaryButton className="bg-yellow-500 mobile:w-10">
                                             <AiFillEdit size="20" />
                                         </PrimaryButton>
                                     </Link>
-                                   
-                                    <PrimaryButton className="bg-red-600 dark:bg-red-600 mobile:w-10">
+                                    <PrimaryButton className="bg-red-600 mobile:w-10"
+                                    onClick={()=> {
+										destroy(route('admin.dashboard.artikel.destroy', artikel.id)) 
+									    }}
+                                    >
                                         <AiFillDelete size="20" />
                                     </PrimaryButton>
-                                    </div>
+                                </div>
                                 </td>
 							</tr>
+							))}
 							
 						</tbody>
 					</table>

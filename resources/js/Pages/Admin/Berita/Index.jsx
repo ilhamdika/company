@@ -6,14 +6,14 @@ import { Head,  useForm } from '@inertiajs/react';
 import FlashMessage from "@/Components/FlashMessage";
 
 
-export default function Berita({flashMessage, beritas}){
+export default function Berita({auth, flashMessage, beritas}){
     // console.log(beritas)
 
     const {delete: destroy} =useForm()
     return(
-        <Authenticated>
+        <Authenticated auth={auth}>
              <Head title="Admin Add Portfolio" />
-             <h1 className="text-3xl font-bold my-3 dark:text-white">Welcome to Admin Portfolio</h1>
+             <h1 className="text-3xl font-bold my-3 dark:text-white">Berita</h1>
                 <PrimaryButton className="bg-green-500 dark:bg-green-500">
                     <Link href={route('admin.dashboard.news.create')}>
                         Create

@@ -1,6 +1,6 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
 import Card from "@/Components/Card";
@@ -26,6 +26,7 @@ export default function Index() {
       }, []);
 
     return <LayoutPage>
+        <Head title="Home" />
         {
             loading ? <div className="flex justify-center items-center h-screen">
             <DotLoader color={'#a9dbd2'} loading={loading} size={150} />
@@ -45,11 +46,12 @@ export default function Index() {
                             </div>
                         </div>
                     </div>
-                    <div className='mt-10 mobile:h-100 mobile:w-full' style={bgHero}>
+                    <div className='mt-10 mobile:h-100 mobile:w-full'>
                         {/* <img src="/images/heroThumbnail.png" alt="Background" className="w-full h-full object-cover" /> */}
 
-                            <img src="/images/key.png" alt="Elemen Atas" className="w-32 h-32 animate-bounce"/>
-                            <img src="/images/key.png" alt="Elemen Atas" className="w-32 h-32 motion-safe:animate-spin float-right"/>
+                            {/* <img src="/images/key.png" alt="Elemen Atas" className="w-32 h-32 animate-bounce"/> */}
+                            <img src="/images/Security On.gif" alt="Elemen Atas" className="laptop:ml-14 w-auto h-auto"/>
+                            {/* <img src="/images/key.png" alt="Elemen Atas" className="w-32 h-32 motion-safe:animate-spin float-right"/> */}
                         {/* <div className="pt-10 absolute top-0 left-20 w-full h-full flex items-center justify-center">
                         </div> */}
                     </div>

@@ -16,7 +16,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $berita = News::all();
+        $berita = News::orderBy('created_at', 'desc')->get();
         return Inertia::render('Admin/Berita/Index', [
             'beritas' => $berita
         ]);

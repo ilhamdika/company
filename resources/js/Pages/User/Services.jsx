@@ -1,9 +1,11 @@
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 import Card from "@/Components/Card";
+import { Head } from "@inertiajs/react";
 
 export default function Services() {
     return (
         <LayoutPage>
+            <Head title="Services" />
             <h1 className="font-semibold text-4xl flex justify-center items-center">Services</h1>
              <div className="grid grid-cols-4 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 rounded-xl mobile:h-auto mt-10">
                 {[1,2,3,4].map(i=> (

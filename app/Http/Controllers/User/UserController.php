@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Portfolio;
+use App\Models\Artikel;
+use App\Models\News;
 
 class UserController extends Controller
 {
@@ -35,11 +37,31 @@ class UserController extends Controller
 
     public function berita()
     {
-        return Inertia('User/Berita');
+        $berita = News::orderBy('created_at', 'desc')->get();
+        return Inertia('User/Berita', [
+            'beritas' => $berita
+        ]);
+    }
+
+    public function berita_detail(News $berita)
+    {
+        return Inertia::render('User/BeritaDetail', [
+            'berita' => $berita
+        ]);
     }
 
     public function artikel()
     {
-        return Inertia('User/Artikel');
+        $artikel = Artikel::all();
+        return Inertia('User/Artikel', [
+            'artikels' => $artikel
+        ]);
+    }
+
+    public function artikel_detail(Artikel $artikel)
+    {
+        return Inertia::render('User/ArtikelDetail', [
+            'artikel' => $artikel
+        ]);
     }
 }

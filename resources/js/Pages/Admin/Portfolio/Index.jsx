@@ -45,7 +45,7 @@ export default function Index({auth, portfolios, flashMessage}) {
     
     return(
         <Authenticated>
-            <Head title="Admin Add Portfolio" />
+            <Head title="Portfolio" />
             {
                 loading ? <div className="flex justify-center items-center h-screen">
                     <DotLoader color={'#161616'} loading={loading} size={150} />

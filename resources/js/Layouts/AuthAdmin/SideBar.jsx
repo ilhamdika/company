@@ -9,6 +9,7 @@ import { HiOutlineViewList } from "react-icons/hi";
 import { CiLogout } from "react-icons/ci";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { AiOutlineClear } from "react-icons/ai";
+import { IoIosContact } from "react-icons/io";
 
 export default function SideBar({click, icon}) {
     const [open, setOpen] = useState(true);
@@ -42,6 +43,11 @@ export default function SideBar({click, icon}) {
             name: "Artikel",
             link: 'admin.dashboard.artikel.index',
             src: <FaBeer size="32" color="black" className="dark:bg-slate-200 rounded-xl"/>
+        },
+        {
+            name: "Contact",
+            link: 'admin.dashboard.contact.index',
+            src: <IoIosContact size="32" color="black" className="dark:bg-slate-200 rounded-xl"/>
         }
        
     ];
@@ -60,12 +66,13 @@ export default function SideBar({click, icon}) {
           onClick={() => setOpen(!open)}
         />
         <div className="flex gap-x-4 items-center">
-          <GrUserAdmin
+          {/* <GrUserAdmin
             size="40"
             className={`w-10 cursor-pointer duration-500  ${
               open && "rotate-[360deg]"
             }`}
-          />
+          /> */}
+          <img src="/images/logo.png" className="w-10" />
           <h1
             className={`text-black origin-left font-medium text-xl duration-200 dark:text-white ${
               !open && "scale-0"

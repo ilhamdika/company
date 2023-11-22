@@ -3,17 +3,17 @@ import InputLabel from "@/Components/InputLabel"
 import TextInput from "@/Components/TextInput"
 import ImageUploader from "@/Components/ImageUploader"
 import PrimaryButton from "@/Components/PrimaryButton"
+import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { useState, useEffect } from "react";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Head,  useForm } from '@inertiajs/react';
+import { Inertia } from "@inertiajs/inertia";
+import InputError from "@/Components/InputError"
 import TextArea from "@/Components/TextArea";
-import InputError from "@/Components/InputError";
 
-export default function Create({auth}){
-    const {setData, post, processing, errors} = useForm({
-        title: "",
-        date: "",
-        image: "",
-        content: "",
+export default function Edit({auth, artikel}){
+    const { data, setData, post, processing, errors} = useForm({
+        ...artikel,
     });
 
     const handleOnChange = (event) => {
@@ -25,13 +25,20 @@ export default function Create({auth}){
 
     const submit = (e) => {
         e.preventDefault();
-    
-        post(route('admin.dashboard.artikel.store'));
+
+        if(data.image === artikel.image){
+            delete data.image;
+        }
+
+        Inertia.post(route('admin.dashboard.artikel.update', artikel.id),{
+            _method: 'PUT',
+            ...data
+        });
     };
 
     return<Authenticated auth={auth}>
-            <Head title="Admin Add Artikel" />
-            <h1 className="text-3xl font-bold dark:text-white">Add Artikel</h1>
+            <Head title="Admin Edit Artikel" />
+            <h1 className="text-3xl font-bold dark:text-white">Edit Artikel</h1>
 
             <form onSubmit={submit}>
                 
@@ -39,7 +46,6 @@ export default function Create({auth}){
                     className="text-2xl mt-2 dark:text-white"
                     value="Title"
                 />
-                <InputError message={errors.title} className="mt-2" />
                 <TextInput
                     className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full"
                     label="Title"
@@ -47,13 +53,13 @@ export default function Create({auth}){
                     type="text"
                     placeholder="Title"
                     handleChange={handleOnChange}
+                    defaultValue={artikel.title}
                 />
 
                 <InputLabel
                     className="text-2xl mt-2 dark:text-white"
                     value="Tanggal"
                 />
-                <InputError message={errors.date} className="mt-2" />
                 <TextInput
                     className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full"
                     label="Tanggal"
@@ -61,14 +67,14 @@ export default function Create({auth}){
                     type="date"
                     placeholder="Tanggal"
                     handleChange={handleOnChange}
+                    defaultValue={artikel.date}
                 />
 
                 <InputLabel
                     className="text-2xl mt-2 dark:text-white"
                     value="Image"
                 />
-                <InputError message={errors.image} className="mt-2" />
-
+                <img src={`/storage/${artikel.image}`} className="w-23 h-20" />
                 <TextInput
                     className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full"
                     label="Image"
@@ -81,21 +87,30 @@ export default function Create({auth}){
                     className="text-2xl mt-2 dark:text-white"
                     value="Content"
                 />
-
-                <InputError message={errors.content} className="mt-2" />
+                {/* <textarea className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full" name="content" id="description" cols="30" rows="10" onChange={handleOnChange} defaultValue={artikel.content}>
+                    {artikel.content}
+                </textarea> */}
                 <TextArea
                     className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full"
                     label="Content"
                     name="content"
-                    type="text"
                     placeholder="Content"
                     handleChange={handleOnChange}
+                    defaultValue={artikel.content}
                 />
-
-
+                <div className="h-96">
+                 {/* <CKEditor
+                            editor={ClassicEditor}
+                            data={editorData}
+                            onChange={handleEditorChange}
+                            name="content"
+                        /> */}
                 <PrimaryButton className="mt-3 dark:bg-blue-300 bg-blue-500">
                     Save
                 </PrimaryButton>
+                </div>
+
+
             </form>
         </Authenticated>
     

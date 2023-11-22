@@ -4,9 +4,12 @@ import { DotLoader } from "react-spinners";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { Link } from "@inertiajs/react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
-import { BiDetail } from "react-icons/bi"
+import { BiDetail } from "react-icons/bi";
+import FlashMessage from "@/Components/FlashMessage";
+import { Head,  useForm } from '@inertiajs/react';
 
-export default function Index() {
+export default function Index({auth, flashMessage, services}) {
+    // console.log(services)
     const [loading,setLoading]=useState(false)
     useEffect(()=>{
         setLoading(true)
@@ -14,9 +17,12 @@ export default function Index() {
             setLoading(false)
         },2000)
     },[])
-    
+
+    const {delete: destroy} =useForm()
+
     return(
-        <Authenticated>
+        <Authenticated auth={auth}>
+            <Head title="Services" />
          {
                 loading ? <div className="flex justify-center items-center h-screen">
                     <DotLoader color={'#161616'} loading={loading} size={150} />
@@ -29,6 +35,9 @@ export default function Index() {
                     </Link>
                 </PrimaryButton>
 
+                {flashMessage?.message && (
+                <FlashMessage message={flashMessage.message}/>
+                )}
                 <table className="mt-3 w-full dark:text-white border border-gray-500">
 						<thead>
 							<tr className="border border-gray-500">
@@ -43,36 +52,39 @@ export default function Index() {
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-                                <td className="border border-gray-500">1</td>
+                            {services.map((service, i=1) => (
+							<tr key={service.id}>
+                                <td className="border border-gray-500">{i+ 1}</td>
 								<td className="border border-gray-500">
-									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5TdYsTZ2WFbJLwPwgbVfexWzppcvGaUxEcg&usqp=CAU" />
+									<img src={`/storage/${service.image}`} />
 									
 								</td>
-								<td className="border border-gray-500">Naruto</td>
-								<td>Action</td>
-								<td className="border border-gray-500">Action border border-gray-500border border-gray-500</td>
-								<td>Action border border-gray-500border border-gray-500</td>
-								<td className="w-21 border border-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati quisquam assumenda explicabo perferendis aperiam cupiditate quam provident voluptate, voluptatibus porro vero ipsum quidem eius sequi facilis numquam fugiat at corporis?</td>
-								<td className="w-auto">
+								<td className="border border-gray-500">{service.title}</td>
+								<td className="border border-gray-500">{service.motto}</td>
+								<td className="border border-gray-500">{service.tugas1}</td>
+								<td className="border border-gray-500">{service.tugas2}</td>
+								<td className="w-21 border border-gray-500">{service.deskripsi}</td>
+								<td className="w-auto border border-gray-500">
                                 <div className="flex items-center justify-center h-full">
-                                    <Link>
+                                    <Link href={route('admin.dashboard.services.edit', service.id)}>
                                         <PrimaryButton className="bg-yellow-500 mobile:w-10">
                                             <AiFillEdit size="20" />
                                         </PrimaryButton>
                                     </Link>
-                                    <Link>
+                                    {/* <Link>
                                         <PrimaryButton className="bg-green-500 mobile:w-10">
                                             <BiDetail size="20" />
                                         </PrimaryButton>
-                                    </Link>
-                                    <PrimaryButton className="bg-red-600 mobile:w-10">
+                                    </Link> */}
+                                    <PrimaryButton className="bg-red-600 mobile:w-10" onClick={()=>{
+                                        destroy(route('admin.dashboard.services.destroy', service.id))
+                                    }}>
                                         <AiFillDelete size="20" />
                                     </PrimaryButton>
                                 </div>
                                 </td>
 							</tr>
-							
+							))}
 						</tbody>
 					</table>
             </div>
