@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\TentangKami;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\DukunganLayanan;
+use App\Http\Controllers\Admin\StrukturOrganisasi;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +45,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::resource('artikel', ArtikelController::class);
     Route::resource('services', Services::class);
     Route::resource('contact', ContactUsController::class);
+    Route::resource('tentang-kami', TentangKami::class);
+    Route::resource(('struktur-organisasi'), StrukturOrganisasi::class);
+    Route::resource('dukungan-layanan', DukunganLayanan::class);
 
     Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
-    Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');
+    // Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');
     // Route::get('/services', [Services::class, 'index'])->name('services.index');
     // Route::get('/services/create', [Services::class, 'create'])->name('services.create');
 

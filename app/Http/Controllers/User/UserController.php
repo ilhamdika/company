@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Models\Portfolio;
 use App\Models\Artikel;
 use App\Models\News;
+use App\Models\AboutUs;
 
 class UserController extends Controller
 {
@@ -27,7 +28,10 @@ class UserController extends Controller
 
     public function tentangKami()
     {
-        return Inertia('User/TentangKami');
+        $tentang = AboutUs::first();
+        return Inertia('User/TentangKami', [
+            'tentang' => $tentang
+        ]);
     }
 
     public function services()
