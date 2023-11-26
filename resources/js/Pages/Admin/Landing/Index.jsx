@@ -10,6 +10,7 @@ import InputLabel from "@/Components/InputLabel";
 import { Inertia } from "@inertiajs/inertia";
 import FlashMessage from "@/Components/FlashMessage";
 import { Head, useForm } from "@inertiajs/react";
+import InputError from "@/Components/InputError";
 
 export default function Index({auth, landing, flashMessage}) {
     console.log(landing)
@@ -66,6 +67,7 @@ export default function Index({auth, landing, flashMessage}) {
                                             className="text-2xl mt-2 dark:text-white"
                                             value="Judul Depan"
                                         />
+                                        <InputError error={errors.title_hero} />
                                         <TextArea
                                             className="dark:text-black justify-center items-center flex text-xl font-thin mt-2 w-full"
                                             label="Judul Depan"
@@ -78,6 +80,7 @@ export default function Index({auth, landing, flashMessage}) {
                                             className="text-2xl mt-2 dark:text-white"
                                             value="Sub Judul Depan"
                                         />
+                                        <InputError error={errors.title_hero_sub} />
                                         <TextArea
                                             className="dark:text-black justify-center items-center flex text-xl font-thin mt-2 w-full"
                                             label="Sub Judul Depan"
@@ -108,6 +111,7 @@ export default function Index({auth, landing, flashMessage}) {
                                             className="text-2xl mt-2 dark:text-white"
                                             value="Text kiri"
                                         />
+                                        <InputError error={errors.motto_sub} />
                                         <TextArea
                                             className="dark:text-black justify-center items-center flex text-xl font-thin mt-2 w-full"
                                             label="Judul Depan"
@@ -120,6 +124,7 @@ export default function Index({auth, landing, flashMessage}) {
                                             className="text-2xl mt-2 dark:text-white"
                                             value="Text kanan"
                                         />
+                                        <InputError error={errors.motto_title} />
                                         <TextArea
                                             className="dark:text-black justify-center items-center flex text-xl font-thin mt-2 w-full"
                                             label="Text kanan"
@@ -141,6 +146,7 @@ export default function Index({auth, landing, flashMessage}) {
                                             className="text-2xl mt-2 dark:text-white"
                                             value="Text kiri"
                                         />
+                                        <InputError error={errors.branding_title} />
                                         <TextArea
                                             className="dark:text-black justify-center items-center flex text-xl font-thin mt-2 w-full"
                                             label="Text kiri"
@@ -153,6 +159,7 @@ export default function Index({auth, landing, flashMessage}) {
                                             className="text-2xl mt-2 dark:text-white"
                                             value="Text Kanan"
                                         />
+                                        <InputError error={errors.branding_sub} />
                                         <TextArea
                                             className="dark:text-black justify-center items-center flex text-xl font-thin mt-2 w-full"
                                             label="Text Kanan"
