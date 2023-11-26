@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\DukunganLayanan;
+namespace App\Http\Requests\Admin\TugasPokok;
 
+use App\Models\TugasPokok;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class Store extends FormRequest
+class EditTugas extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +23,10 @@ class Store extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(TugasPokok $tugasPokok)
     {
         return [
-            'title' => 'required|string',
+            'title' => 'nullable|string' . $tugasPokok->id,
         ];
     }
 }

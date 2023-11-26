@@ -9,6 +9,7 @@ use App\Models\Portfolio;
 use App\Models\Artikel;
 use App\Models\News;
 use App\Models\AboutUs;
+use App\Models\Services;
 
 class UserController extends Controller
 {
@@ -36,7 +37,10 @@ class UserController extends Controller
 
     public function services()
     {
-        return Inertia('User/Services');
+        $services = Services::orderBy('created_at', 'desc')->get();
+        return Inertia('User/Services', [
+            'services' => $services
+        ]);
     }
 
     public function berita()

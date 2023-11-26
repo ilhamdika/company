@@ -5,10 +5,9 @@ import PrimaryButton from "@/Components/PrimaryButton"
 import TextArea from "@/Components/TextArea";
 import InputLabel from "@/Components/InputLabel";
 
-export default function Edit ({auth, dukunganLayanan}){
-    // console.log(dukunganLayanan);
+export default function Edit ({auth, rekrutmen}){
     const { data, setData, post, processing, errors} = useForm({
-        ...dukunganLayanan,
+        ...rekrutmen,
     });
 
     const handleOnChange = (event) => {
@@ -16,25 +15,25 @@ export default function Edit ({auth, dukunganLayanan}){
             event.target.type === 'file' 
             ? event.target.files[0]
             : event.target.value);
-    };
+    }
 
     const submit = (e) => {
         e.preventDefault();
 
-        if(data.image === dukunganLayanan.image){
+        if(data.image === rekrutmen.image){
             delete data.image;
         }
 
-        Inertia.post(route('admin.dashboard.dukungan-layanan.update', dukunganLayanan.id),{
+        Inertia.post(route('admin.dashboard.rekrutmen.update', rekrutmen.id),{
             _method: 'PUT',
             ...data
         });
-    };
+    }
     return(
         <Authenticated auth={auth}>
-            <Head title="Edit Dukungan Layanan" />
+            <Head title="Edit Syarat Rekurtmen" />
             <div>
-                <h1>Edit Dukungan Layanan</h1>
+                <h1>Edit Syarat Rekurtmen</h1>
             </div>
 
             <form onSubmit={submit}>
@@ -48,7 +47,7 @@ export default function Edit ({auth, dukunganLayanan}){
                     name="title"
                     type="text"
                     handleChange={handleOnChange}
-                    defaultValue={dukunganLayanan.title}
+                    defaultValue={rekrutmen.title}
                 />
 
                 <PrimaryButton className="mt-3 dark:text-white dark:bg-blue-300 bg-blue-500">

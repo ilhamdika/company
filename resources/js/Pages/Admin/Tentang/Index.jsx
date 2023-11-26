@@ -75,6 +75,22 @@ export default function Index({about, flashMessage, auth}) {
                     </PrimaryButton>
                 </Link>
 
+                <h1 className="text-3xl font-bold my-3 dark:text-white">Tugas Pokok Dan Jam Kerja Satuan Pengamanan </h1>
+                <h1>Tugas Pokok</h1>
+                <Link href={route('admin.dashboard.tugas-pokok.index')}>
+                    <PrimaryButton className="bg-green-500 dark:bg-green-500">
+                        Lebih
+                    </PrimaryButton>
+                </Link>
+
+                <h1 className="text-3xl font-bold my-3 dark:text-white">Profile Tenaga Satuan yang direkrut</h1>
+                <h1>PT. DAYA WINEKA SEJAHTERA NUSANTARA MELAKUKAN REQRUITMEN</h1>
+                <Link href={route('admin.dashboard.rekrutmen.index')}>
+                    <PrimaryButton className="bg-green-500 dark:bg-green-500">
+                        Lebih
+                    </PrimaryButton>
+                </Link>
+
                 <h1 className="text-3xl font-bold my-3 dark:text-white">Tentang Kami</h1>
                 {flashMessage?.message && (
                 <FlashMessage message={flashMessage.message}/>

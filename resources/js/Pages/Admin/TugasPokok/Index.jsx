@@ -5,8 +5,8 @@ import { Head, useForm } from '@inertiajs/react';
 import FlashMessage from "@/Components/FlashMessage";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 
-export default function Index ({auth, dukunganLayanan, flashMessage}){
-    // console.log(dukunganLayanan);
+export default function Index ({auth, flashMessage, tugasPokok}){
+    // console.log(tugasPokok)
     const {delete: destroy} =useForm()
     return(
         <Authenticated auth={auth}>
@@ -17,11 +17,9 @@ export default function Index ({auth, dukunganLayanan, flashMessage}){
                 </PrimaryButton>
             </Link>
             <div className="justify-center items-center">
-                <h1>Dukungan Layanan</h1>
+                <h1>Tugas Pokok Dan Jam Kerja Satuan Pengamanan</h1>
             </div>
-            <h1 className="text-xl font-bold my-3 dark:text-white">Dukungan Layanan Tenaga Jasa Pengamanan</h1>
-            <h1>PT. DAYA WINEKA SEJAHTERA NUSANTARA DALAM MEBERIKAN PELAYANAN PENGAMANAN SWASKARA TELAH DILENGKAPI DENGAN:</h1>
-            <Link href={route('admin.dashboard.dukungan-layanan.create')}>
+            <Link href={route('admin.dashboard.tugas-pokok.create')}>
                 <PrimaryButton className="bg-green-500 dark:bg-green-500">
                     Add
                 </PrimaryButton>
@@ -29,6 +27,7 @@ export default function Index ({auth, dukunganLayanan, flashMessage}){
             {flashMessage?.message && (
                 <FlashMessage message={flashMessage.message}/>
             )}
+
                     <table className="mt-3 w-full dark:text-white border border-gray-500">
                         <thead>
                             <tr className="border border-gray-500">
@@ -38,19 +37,19 @@ export default function Index ({auth, dukunganLayanan, flashMessage}){
                             </tr>
                         </thead>
                         <tbody>
-                            {dukunganLayanan.map((dukungan, i=1) => (
-                            <tr key={dukungan.id}>
+                        {tugasPokok.map((tugas, i=1) => (
+                            <tr key={tugas.id}>
                                 <td className="border border-gray-500">{i +1}</td>
-                                <td className="border border-gray-500">{dukungan.title}</td>
+                                <td className="border border-gray-500">{tugas.title}</td>
                                 <td className="border border-gray-500">
-                                <Link href={route('admin.dashboard.dukungan-layanan.edit', dukungan.id)}>
+                                <Link href={route('admin.dashboard.tugas-pokok.edit', tugas.id)}>
                                         <PrimaryButton className="bg-yellow-500">
                                             <AiFillEdit size="20" />
                                         </PrimaryButton>
                                     </Link>
                                     <PrimaryButton className="bg-red-600"
                                     onClick={()=> {
-                                        destroy(route('admin.dashboard.dukungan-layanan.destroy', dukungan.id))
+                                        destroy(route('admin.dashboard.tugas-pokok.destroy', tugas.id))
                                         }
                                     }
                                     >

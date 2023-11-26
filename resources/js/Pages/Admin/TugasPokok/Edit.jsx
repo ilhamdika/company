@@ -5,36 +5,38 @@ import PrimaryButton from "@/Components/PrimaryButton"
 import TextArea from "@/Components/TextArea";
 import InputLabel from "@/Components/InputLabel";
 
-export default function Edit ({auth, dukunganLayanan}){
-    // console.log(dukunganLayanan);
-    const { data, setData, post, processing, errors} = useForm({
-        ...dukunganLayanan,
-    });
+export default function Edit ({auth, tugasPokok}){
+    // console.log(tugasPokok)
+    const { data, setData, post, processing, errors } = useForm({
+        ...tugasPokok,
+     });
+     
+ 
+     const handleOnChange = (event) => {
+         setData(event.target.name,
+             event.target.type === 'file' 
+             ? event.target.files[0]
+             : event.target.value);
+     };
+ 
+     const submit = (e) => {
+         e.preventDefault();
+ 
+         if(data.image === tugasPokok.image){
+             delete data.image;
+         }
+ 
+         Inertia.post(route('admin.dashboard.tugas-pokok.update', tugasPokok.id),{
+             _method: 'PUT',
+             ...data
+         });
+     };
 
-    const handleOnChange = (event) => {
-        setData(event.target.name,
-            event.target.type === 'file' 
-            ? event.target.files[0]
-            : event.target.value);
-    };
-
-    const submit = (e) => {
-        e.preventDefault();
-
-        if(data.image === dukunganLayanan.image){
-            delete data.image;
-        }
-
-        Inertia.post(route('admin.dashboard.dukungan-layanan.update', dukunganLayanan.id),{
-            _method: 'PUT',
-            ...data
-        });
-    };
     return(
         <Authenticated auth={auth}>
-            <Head title="Edit Dukungan Layanan" />
+            <Head title="Edit Tugas Pokok" />
             <div>
-                <h1>Edit Dukungan Layanan</h1>
+                <h1>Edit Tugas Pokok</h1>
             </div>
 
             <form onSubmit={submit}>
@@ -48,7 +50,7 @@ export default function Edit ({auth, dukunganLayanan}){
                     name="title"
                     type="text"
                     handleChange={handleOnChange}
-                    defaultValue={dukunganLayanan.title}
+                    defaultValue={tugasPokok.title}
                 />
 
                 <PrimaryButton className="mt-3 dark:text-white dark:bg-blue-300 bg-blue-500">

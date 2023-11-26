@@ -5,10 +5,10 @@ import PrimaryButton from "@/Components/PrimaryButton"
 import TextArea from "@/Components/TextArea";
 import InputLabel from "@/Components/InputLabel";
 
-export default function Edit ({auth, dukunganLayanan}){
-    // console.log(dukunganLayanan);
+export default function Edit ({auth, administrasi}){
+    // console.log(administrasi);
     const { data, setData, post, processing, errors} = useForm({
-        ...dukunganLayanan,
+        ...administrasi,
     });
 
     const handleOnChange = (event) => {
@@ -21,11 +21,11 @@ export default function Edit ({auth, dukunganLayanan}){
     const submit = (e) => {
         e.preventDefault();
 
-        if(data.image === dukunganLayanan.image){
+        if(data.image === administrasi.image){
             delete data.image;
         }
 
-        Inertia.post(route('admin.dashboard.dukungan-layanan.update', dukunganLayanan.id),{
+        Inertia.post(route('admin.dashboard.administrasi.update', administrasi.id),{
             _method: 'PUT',
             ...data
         });
@@ -48,7 +48,7 @@ export default function Edit ({auth, dukunganLayanan}){
                     name="title"
                     type="text"
                     handleChange={handleOnChange}
-                    defaultValue={dukunganLayanan.title}
+                    defaultValue={administrasi.title}
                 />
 
                 <PrimaryButton className="mt-3 dark:text-white dark:bg-blue-300 bg-blue-500">

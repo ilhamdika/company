@@ -1,14 +1,13 @@
-import Authenticated from "@/Layouts/AuthAdmin/Index";
-import { Inertia } from "@inertiajs/inertia";
-import { Head,  useForm } from '@inertiajs/react';
-import PrimaryButton from "@/Components/PrimaryButton"
-import TextArea from "@/Components/TextArea";
 import InputLabel from "@/Components/InputLabel";
+import Authenticated from "@/Layouts/AuthAdmin/Index";
+import TextInput from "@/Components/TextInput";
+import TextArea from "@/Components/TextArea";
+import { Head,  useForm } from '@inertiajs/react';
+import PrimaryButton from "@/Components/PrimaryButton";
 
-export default function Edit ({auth, dukunganLayanan}){
-    // console.log(dukunganLayanan);
-    const { data, setData, post, processing, errors} = useForm({
-        ...dukunganLayanan,
+export default function Create ({auth}){
+    const { setData, post, processing, errors } = useForm({
+        title: "",
     });
 
     const handleOnChange = (event) => {
@@ -21,20 +20,13 @@ export default function Edit ({auth, dukunganLayanan}){
     const submit = (e) => {
         e.preventDefault();
 
-        if(data.image === dukunganLayanan.image){
-            delete data.image;
-        }
-
-        Inertia.post(route('admin.dashboard.dukungan-layanan.update', dukunganLayanan.id),{
-            _method: 'PUT',
-            ...data
-        });
+        post(route('admin.dashboard.kemampuan-fisik.store'));
     };
     return(
         <Authenticated auth={auth}>
-            <Head title="Edit Dukungan Layanan" />
+            <Head title="Create Kemampuan Fisik" />
             <div>
-                <h1>Edit Dukungan Layanan</h1>
+                <h1>Create Kemampuan Fisik</h1>
             </div>
 
             <form onSubmit={submit}>
@@ -48,7 +40,6 @@ export default function Edit ({auth, dukunganLayanan}){
                     name="title"
                     type="text"
                     handleChange={handleOnChange}
-                    defaultValue={dukunganLayanan.title}
                 />
 
                 <PrimaryButton className="mt-3 dark:text-white dark:bg-blue-300 bg-blue-500">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\DukunganLayanan;
+namespace App\Http\Requests\Admin\TugasPokok;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
