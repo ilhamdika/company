@@ -1,6 +1,6 @@
 import Authenticated from "@/Layouts/AuthAdmin/Index";
 import { Inertia } from "@inertiajs/inertia";
-import { Head,  useForm } from '@inertiajs/react';
+import { Head,  useForm, Link } from '@inertiajs/react';
 import PrimaryButton from "@/Components/PrimaryButton"
 import TextArea from "@/Components/TextArea";
 import InputLabel from "@/Components/InputLabel";
@@ -33,6 +33,11 @@ export default function Edit ({auth, mental_ideologi}){
     return(
         <Authenticated auth={auth}>
             <Head title="Edit Mental Ideologi" />
+            <Link href={route('admin.dashboard.rekrutmen.index')}>
+                <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
+                    Back
+                </PrimaryButton>
+            </Link>
             <div>
                 <h1>Edit Mental Ideologi</h1>
             </div>

@@ -2,7 +2,7 @@ import InputLabel from "@/Components/InputLabel";
 import Authenticated from "@/Layouts/AuthAdmin/Index";
 import TextInput from "@/Components/TextInput";
 import TextArea from "@/Components/TextArea";
-import { Head,  useForm } from '@inertiajs/react';
+import { Head,  useForm, Link } from '@inertiajs/react';
 import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function Create ({auth}){
@@ -25,6 +25,11 @@ export default function Create ({auth}){
     return(
         <Authenticated auth={auth}>
             <Head title="Create Syarat Rekurtmen" />
+            <Link href={route('admin.dashboard.rekrutmen.index')}>
+                <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
+                    Back
+                </PrimaryButton>
+            </Link>
             <div>
                 <h1>Create Syarat Rekurtmen</h1>
             </div>

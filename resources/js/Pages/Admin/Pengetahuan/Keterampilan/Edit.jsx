@@ -1,13 +1,14 @@
-import InputLabel from "@/Components/InputLabel";
 import Authenticated from "@/Layouts/AuthAdmin/Index";
-import TextInput from "@/Components/TextInput";
-import TextArea from "@/Components/TextArea";
+import { Inertia } from "@inertiajs/inertia";
 import { Head,  useForm, Link } from '@inertiajs/react';
-import PrimaryButton from "@/Components/PrimaryButton";
+import PrimaryButton from "@/Components/PrimaryButton"
+import TextArea from "@/Components/TextArea";
+import InputLabel from "@/Components/InputLabel";
 
-export default function Create ({auth}){
-    const { setData, post, processing, errors } = useForm({
-        title: "",
+export default function Edit ({auth, keterampilan}){
+    // console.log(keterampilan);
+    const { data, setData, post, processing, errors} = useForm({
+        ...keterampilan,
     });
 
     const handleOnChange = (event) => {
@@ -20,18 +21,25 @@ export default function Create ({auth}){
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('admin.dashboard.administrasi.store'));
+        if(data.image === keterampilan.image){
+            delete data.image;
+        }
+
+        Inertia.post(route('admin.dashboard.keterampilan.update', keterampilan.id),{
+            _method: 'PUT',
+            ...data
+        });
     };
     return(
         <Authenticated auth={auth}>
-            <Head title="Create Administrasi" />
-            <Link href={route('admin.dashboard.rekrutmen.index')}>
+            <Head title="Edit Keterampilan" />
+            <Link href={route('admin.dashboard.pengetahuan.index')}>
                 <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
                     Back
                 </PrimaryButton>
             </Link>
             <div>
-                <h1>Create Administrasi</h1>
+                <h1>Edit Keterampilan</h1>
             </div>
 
             <form onSubmit={submit}>
@@ -45,6 +53,7 @@ export default function Create ({auth}){
                     name="title"
                     type="text"
                     handleChange={handleOnChange}
+                    defaultValue={keterampilan.title}
                 />
 
                 <PrimaryButton className="mt-3 dark:text-white dark:bg-blue-300 bg-blue-500">

@@ -4,6 +4,7 @@ import TextInput from "@/Components/TextInput";
 import TextArea from "@/Components/TextArea";
 import { Head,  useForm, Link } from '@inertiajs/react';
 import PrimaryButton from "@/Components/PrimaryButton";
+import InputError from "@/Components/InputError";
 
 export default function Create ({auth}){
     const { setData, post, processing, errors } = useForm({
@@ -20,21 +21,22 @@ export default function Create ({auth}){
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('admin.dashboard.administrasi.store'));
+        post(route('admin.dashboard.akademik.store'));
     };
     return(
         <Authenticated auth={auth}>
-            <Head title="Create Administrasi" />
-            <Link href={route('admin.dashboard.rekrutmen.index')}>
+            <Head title="Create Fisik Mental" />
+            <Link href={route('admin.dashboard.pengetahuan.index')}>
                 <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
                     Back
                 </PrimaryButton>
             </Link>
             <div>
-                <h1>Create Administrasi</h1>
+                <h1>Create Fisik Mental</h1>
             </div>
 
             <form onSubmit={submit}>
+                <InputError error={errors.title} />
                 <InputLabel
                     className="text-xl mt-2 dark:text-white"
                     value="Title"

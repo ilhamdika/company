@@ -2,8 +2,9 @@ import InputLabel from "@/Components/InputLabel";
 import Authenticated from "@/Layouts/AuthAdmin/Index";
 import TextInput from "@/Components/TextInput";
 import TextArea from "@/Components/TextArea";
-import { Head,  useForm, Link } from '@inertiajs/react';
+import { Head,  useForm } from '@inertiajs/react';
 import PrimaryButton from "@/Components/PrimaryButton";
+import { Link } from "@inertiajs/react";
 
 export default function Create ({auth}){
     const { setData, post, processing, errors } = useForm({
@@ -20,18 +21,18 @@ export default function Create ({auth}){
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('admin.dashboard.administrasi.store'));
+        post(route('admin.dashboard.keterampilan.store'));
     };
     return(
         <Authenticated auth={auth}>
-            <Head title="Create Administrasi" />
-            <Link href={route('admin.dashboard.rekrutmen.index')}>
+            <Head title="Create Keterampilan" />
+            <Link href={route('admin.dashboard.pengetahuan.index')}>
                 <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
                     Back
                 </PrimaryButton>
             </Link>
             <div>
-                <h1>Create Administrasi</h1>
+                <h1>Create Keterampilan</h1>
             </div>
 
             <form onSubmit={submit}>

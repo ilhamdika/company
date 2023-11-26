@@ -2,7 +2,7 @@ import InputLabel from "@/Components/InputLabel";
 import Authenticated from "@/Layouts/AuthAdmin/Index";
 import TextInput from "@/Components/TextInput";
 import TextArea from "@/Components/TextArea";
-import { Head,  useForm, Link } from '@inertiajs/react';
+import { Head,  Link,  useForm } from '@inertiajs/react';
 import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function Create ({auth}){
@@ -20,18 +20,18 @@ export default function Create ({auth}){
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('admin.dashboard.administrasi.store'));
+        post(route('admin.dashboard.fisik-mental.store'));
     };
     return(
         <Authenticated auth={auth}>
-            <Head title="Create Administrasi" />
-            <Link href={route('admin.dashboard.rekrutmen.index')}>
+            <Head title="Create Akademik" />
+            <Link href={route('admin.dashboard.pengetahuan.index')}>
                 <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
                     Back
                 </PrimaryButton>
             </Link>
             <div>
-                <h1>Create Administrasi</h1>
+                <h1>Create Akademik</h1>
             </div>
 
             <form onSubmit={submit}>

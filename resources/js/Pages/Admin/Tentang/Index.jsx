@@ -91,6 +91,22 @@ export default function Index({about, flashMessage, auth}) {
                     </PrimaryButton>
                 </Link>
 
+                <h1 className="text-3xl font-bold my-3 dark:text-white">Materi Dan Kemampuan Pengetahuan Tenaga Jasa Pengamanan</h1>
+                <h1>PT. Daya Wineka Sejahtera Nusantara telah mempersiapkan pemuda/pemudi yang di didik dan diberi kemampuan pengetahuan bidang satpam agar menjadi satuan pengamanan yang terampil dan profesional dalam tugasnya</h1>
+                <Link href={route('admin.dashboard.pengetahuan.index')}>
+                    <PrimaryButton className="bg-green-500 dark:bg-green-500">
+                        Lebih
+                    </PrimaryButton>
+                </Link>
+
+                <h1 className="text-3xl font-bold my-3 dark:text-white">Bentuk kerjasama dan keuntungan pengguna jasa</h1>
+                <Link href={route('admin.dashboard.pengetahuan.index')}>
+                    <PrimaryButton className="bg-green-500 dark:bg-green-500">
+                        Lebih
+                    </PrimaryButton>
+                </Link>
+
+
                 <h1 className="text-3xl font-bold my-3 dark:text-white">Tentang Kami</h1>
                 {flashMessage?.message && (
                 <FlashMessage message={flashMessage.message}/>

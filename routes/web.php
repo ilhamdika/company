@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdministrasiC;
+use App\Http\Controllers\Admin\Akademik;
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\LandingAdmin;
 use App\Http\Controllers\Admin\NewsController;
@@ -15,8 +16,11 @@ use App\Http\Controllers\Admin\TentangKami;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DukunganLayanan;
+use App\Http\Controllers\Admin\FisikMental;
 use App\Http\Controllers\Admin\KemampuanFisik;
+use App\Http\Controllers\Admin\Keterampilan;
 use App\Http\Controllers\Admin\MentalIdeologi;
+use App\Http\Controllers\Admin\Pengetahuan;
 use App\Http\Controllers\Admin\Rekrutmen;
 use App\Http\Controllers\Admin\StrukturOrganisasi;
 use App\Http\Controllers\Admin\TugasPokok;
@@ -58,6 +62,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::resource('administrasi', AdministrasiC::class);
     Route::resource('mental-ideologi', MentalIdeologi::class);
     Route::resource('kemampuan-fisik', KemampuanFisik::class);
+    Route::get('pengetahuan', [Pengetahuan::class, 'index'])->name('pengetahuan.index');
+    Route::resource('fisik-mental', FisikMental::class);
+    Route::resource('akademik', Akademik::class);
+    Route::resource('keterampilan', Keterampilan::class);
 
     Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
     // Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');

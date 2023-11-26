@@ -1,6 +1,6 @@
 import Authenticated from "@/Layouts/AuthAdmin/Index";
 import { Inertia } from "@inertiajs/inertia";
-import { Head,  useForm } from '@inertiajs/react';
+import { Head,  useForm, Link } from '@inertiajs/react';
 import PrimaryButton from "@/Components/PrimaryButton"
 import TextArea from "@/Components/TextArea";
 import InputLabel from "@/Components/InputLabel";
@@ -32,9 +32,14 @@ export default function Edit ({auth, administrasi}){
     };
     return(
         <Authenticated auth={auth}>
-            <Head title="Edit Dukungan Layanan" />
+            <Head title="Edit Administrasi" />
+            <Link href={route('admin.dashboard.rekrutmen.index')}>
+                <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
+                    Back
+                </PrimaryButton>
+            </Link>
             <div>
-                <h1>Edit Dukungan Layanan</h1>
+                <h1>Edit Administrasi</h1>
             </div>
 
             <form onSubmit={submit}>
