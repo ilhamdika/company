@@ -9,7 +9,7 @@ export default function Index({auth, rekrutmen, administrasi, flashMessage, ment
     // console.log(rekrutmen);
     // console.log(administrasi);
     // console.log(mental_ideologi)
-    console.log(kemampuan_fisik)
+    // console.log(kemampuan_fisik)
     const {delete: destroy} =useForm()
     return(
         <Authenticated>
@@ -19,7 +19,8 @@ export default function Index({auth, rekrutmen, administrasi, flashMessage, ment
                     kembali
                 </PrimaryButton>
             </Link>
-            <h1 className="text-xl font-bold my-3 dark:text-white">Syarat Rekurtmen Tenaga Jasa Pengamanan</h1>
+        <div className="mb-10">
+            <h1 className="text-xl font-bold my-3 dark:text-white" id="rekrutmen">Syarat Rekurtmen Tenaga Jasa Pengamanan</h1>
 
             <Link href={route('admin.dashboard.rekrutmen.create')}>
                 <PrimaryButton className="bg-green-500 dark:bg-green-500">
@@ -63,7 +64,7 @@ export default function Index({auth, rekrutmen, administrasi, flashMessage, ment
                         </tbody>
                     </table>
 
-                    <h1 className="text-xl font-bold my-3 dark:text-white">Administrasi</h1>
+                    <h1 className="text-xl font-bold my-3 dark:text-white" id="administrasi">Administrasi</h1>
                     <Link href={route('admin.dashboard.administrasi.create')}>
                 <PrimaryButton className="bg-green-500 dark:bg-green-500">
                     Add
@@ -102,7 +103,7 @@ export default function Index({auth, rekrutmen, administrasi, flashMessage, ment
                         </tbody>
                     </table>
 
-                    <h1 className="text-xl font-bold my-3 dark:text-white">Mental Ideologi</h1>
+                    <h1 className="text-xl font-bold my-3 dark:text-white" id="mental">Mental Ideologi</h1>
 
                     <Link href={route('admin.dashboard.mental-ideologi.create')}>
                         <PrimaryButton className="bg-green-500 dark:bg-green-500">
@@ -143,7 +144,7 @@ export default function Index({auth, rekrutmen, administrasi, flashMessage, ment
                         </tbody>
                     </table>
 
-                    <h1 className="text-xl font-bold my-3 dark:text-white">Kemampuan Fisik</h1>
+                    <h1 className="text-xl font-bold my-3 dark:text-white" id="fisik">Kemampuan Fisik</h1>
 
                     <Link href={route('admin.dashboard.kemampuan-fisik.create')}>
                         <PrimaryButton className="bg-green-500 dark:bg-green-500">
@@ -183,7 +184,30 @@ export default function Index({auth, rekrutmen, administrasi, flashMessage, ment
                             ))}
                         </tbody>
                     </table>
-
+        </div>
+                    <div className="flex fixed bottom-5 right-5">
+                        <a href="#rekrutmen" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Rekurtmen
+                            </PrimaryButton>
+                        </a>
+                        <a href="#administrasi" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Administrasi
+                            </PrimaryButton>
+                        </a>
+                        <a href="#mental" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Mental Ideologi
+                            </PrimaryButton>
+                        </a>
+                        <a href="#fisik" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Kemampuan Fisik
+                            </PrimaryButton>
+                        </a>
+                        
+                    </div>
         </Authenticated>
     )
 }
