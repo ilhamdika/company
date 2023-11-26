@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Landing extends Model
+class BentukKerjasama extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title_hero',
-        'title_hero_sub',
-        'motto_title',
-        'motto_sub',
-        'branding_title',
-        'branding_sub',
+        'title'
     ];
 }

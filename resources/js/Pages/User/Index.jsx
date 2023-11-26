@@ -95,13 +95,13 @@ export default function Index() {
                     <div className=' pt-10 pb-10 px-1'>
                         <h1 className="dark:text-white" data-aos="fade-left"
      data-aos-offset="300"
-     data-aos-easing="ease-in-sine">Nawakara didirikan oleh sekelompok lulusan angkatan ke-9 Akademi Kepolisian Indonesia di tahun 1996. Dengan 25+ tahun pengalaman, Nawakara telah dikenal dalam skala global dengan cabang di berbagai wilayah Indonesia.</h1>
+     data-aos-easing="ease-in-sine">Dakara didirikan oleh sekelompok lulusan angkatan ke-9 Akademi Kepolisian Indonesia di tahun 1996. Dengan 25+ tahun pengalaman, Dakara telah dikenal dalam skala global dengan cabang di berbagai wilayah Indonesia.</h1>
                         <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-3xl inline-flex items-center hover:border-b-2 hover:border-blue-500">Lebih lanjut</Link>
                     </div>
             </div>
 
             <div className="mt-5">
-                <h1 className="font-semibold text-3xl dark:text-white">Apa yang baru dari Nawakara?</h1>
+                <h1 className="font-semibold text-3xl dark:text-white">Apa yang baru dari Dakara?</h1>
                 <p className="font-light dark:text-white mt-3">Cari tahu lebih lanjut tentang aktivitas kami.</p>
 
                 <div className="grid grid-cols-4 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 rounded-xl mobile:h-auto mt-10" data-aos="fade-down"

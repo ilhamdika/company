@@ -24,6 +24,8 @@ use App\Http\Controllers\Admin\Pengetahuan;
 use App\Http\Controllers\Admin\Rekrutmen;
 use App\Http\Controllers\Admin\StrukturOrganisasi;
 use App\Http\Controllers\Admin\TugasPokok;
+use App\Http\Controllers\Admin\BentukKerjasama;
+use App\Models\Landing;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,8 +68,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::resource('fisik-mental', FisikMental::class);
     Route::resource('akademik', Akademik::class);
     Route::resource('keterampilan', Keterampilan::class);
+    Route::resource('bentuk-kerjasama', BentukKerjasama::class);
+    Route::resource('landing', LandingAdmin::class);
 
-    Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
+    // Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
     // Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');
     // Route::get('/services', [Services::class, 'index'])->name('services.index');
     // Route::get('/services/create', [Services::class, 'create'])->name('services.create');

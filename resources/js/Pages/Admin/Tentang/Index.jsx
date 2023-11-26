@@ -100,7 +100,7 @@ export default function Index({about, flashMessage, auth}) {
                 </Link>
 
                 <h1 className="text-3xl font-bold my-3 dark:text-white">Bentuk kerjasama dan keuntungan pengguna jasa</h1>
-                <Link href={route('admin.dashboard.pengetahuan.index')}>
+                <Link href={route('admin.dashboard.bentuk-kerjasama.index')}>
                     <PrimaryButton className="bg-green-500 dark:bg-green-500">
                         Lebih
                     </PrimaryButton>

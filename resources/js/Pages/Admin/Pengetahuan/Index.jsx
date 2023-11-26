@@ -67,7 +67,7 @@ export default function Index({auth, flashMessage, fisik_mental, akademik, keter
                     </table>
 
 
-            <h1 className="text-xl font-bold my-3 dark:text-white" id="fisik">Akademik</h1>
+            <h1 className="text-xl font-bold my-3 dark:text-white" id="akademik">Akademik</h1>
             <Link href={route('admin.dashboard.akademik.create')}>
                 <PrimaryButton className="bg-green-500 dark:bg-green-500">
                     Add
@@ -146,6 +146,25 @@ export default function Index({auth, flashMessage, fisik_mental, akademik, keter
                             ))}
                         </tbody>
                     </table>
+
+                    <div className="flex fixed bottom-5 right-5">
+                        <a href="#fisik" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Fisik & Mental
+                            </PrimaryButton>
+                        </a>
+                        <a href="#akademik" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Akademik
+                            </PrimaryButton>
+                        </a>
+                        <a href="#keterampilan" className="mx-1">
+                            <PrimaryButton className="bg-lime-500 dark:bg-lime-500">
+                                Keterampilan
+                            </PrimaryButton>
+                        </a>
+                        
+                    </div>
         </div>
         </Authenticated>
     )
