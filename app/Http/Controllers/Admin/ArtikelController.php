@@ -28,9 +28,11 @@ class ArtikelController extends Controller
 
     public function store(Store $request)
     {
+        $randomNumber = mt_rand(1, 100);
+        $randomString = Str::random(10);
         $data = $request->validated();
         $data['image'] = Storage::disk('public')->put('artikel', $request->file('image'));
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = $randomNumber . '-' . Str::slug($request->title) . '-' . $randomString;
 
         Artikel::create($data);
 
@@ -50,6 +52,8 @@ class ArtikelController extends Controller
     public function update(EditArtikel $request, Artikel $artikel)
     {
         try {
+            $randomNumber = mt_rand(1, 100);
+            $randomString = Str::random(10);
             $data = $request->validated();
             if ($request->file('image')) {
                 $data['image'] = Storage::disk('public')->put('artikel', $request->file('image'));
@@ -57,7 +61,7 @@ class ArtikelController extends Controller
             } else {
                 $data['image'] = $artikel->image;
             }
-            $data['slug'] = Str::slug($request->title);
+            $data['slug'] = $randomNumber . '-' . Str::slug($request->title) . '-' . $randomString;
             $artikel->update($data);
             return Inertia::location(redirect(route('admin.dashboard.artikel.index'))->with([
                 'message' => 'Artikel updated successfully',

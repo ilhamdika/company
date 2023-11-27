@@ -70,38 +70,26 @@ Route::middleware(['auth', 'role:admin'])->prefix('dashboard')->name('admin.dash
     Route::resource('keterampilan', Keterampilan::class);
     Route::resource('bentuk-kerjasama', BentukKerjasama::class);
     Route::resource('landing', LandingAdmin::class);
-
-    // Route::get('landing', [LandingAdmin::class, 'index'])->name('landing.index');
-    // Route::get('/tentang-kami', [TentangKami::class, 'index'])->name('tentang-kami.index');
-    // Route::get('/services', [Services::class, 'index'])->name('services.index');
-    // Route::get('/services/create', [Services::class, 'create'])->name('services.create');
-
-    // Route::get('news', [NewsController::class, 'index'])->name('news.index');
-    // Route::get('news/create', [NewsController::class, 'create'])->name('news.create');
-    // Route::post('news_create', [NewsController::class, 'store'])->name('news.store');
-    // Route::get('news/{news}/edit', [NewsController::class, 'edit'])->name('news.edit');
-    // Route::delete('news/{news}', [NewsController::class, 'destroy'])->name('news.destroy');
-    // Route::put('news_update/{news}', [NewsController::class, 'update'])->name('news.update');
-
-    // Route::get('artikel', [ArtikelController::class, 'index'])->name('artikel.index');
-    // Route::get('artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
 });
 
-// Route::get('/', function () {
-//     return Inertia::render('User/Index');
-// });
 
 Route::prefix('/')->name('user.')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
     Route::get('/portfolio', [UserController::class, 'portfolio'])->name('portfolio');
     Route::get('/tentang-kami', [UserController::class, 'tentangKami'])->name('tentang-kami');
+
     Route::get('/services', [UserController::class, 'services'])->name('services');
+    Route::get('/services-detail/{services:slug}', [UserController::class, 'services_detail'])->name('services-detail');
+
+    Route::get('/karir', [UserController::class, 'karir'])->name('karir');
 
     Route::get('berita', [UserController::class, 'berita'])->name('berita');
     Route::get('berita/{berita:slug}', [UserController::class, 'berita_detail'])->name('berita_detail');
 
     Route::get('artikel', [UserController::class, 'artikel'])->name('artikel');
     Route::get('artikel/{artikel:slug}', [UserController::class, 'artikel_detail'])->name('artikel_detail');
+
+    Route::get('/hubungi-kami', [UserController::class, 'hubungiKami'])->name('hubungi-kami');
 });
 
 

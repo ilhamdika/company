@@ -12,6 +12,10 @@ export default function NavigationBar ({text, click}){
           link: "user.index"
         },
         {
+          name:"Karir",
+          link: "user.karir"
+        },
+        {
           name:"Portfolio",
           link:"user.portfolio"
         },
@@ -83,7 +87,7 @@ export default function NavigationBar ({text, click}){
         {
           Menu.map((menu)=>(
             <li key={menu.name} className='text-xl tablet:my-0 my-7'>
-              <Link href={route(menu.link)} className='dark:text-white text-black hover:text-gray-400 duration-500 ml-5 mr-10'>
+              <Link href={route(menu.link)} className='dark:text-white text-black hover:text-gray-400 duration-500 ml-2 mr-5'>
                 {menu.name}
               </Link>
             </li>
@@ -91,7 +95,7 @@ export default function NavigationBar ({text, click}){
         }
        <li className='text-xl tablet:my-0 my-7'>
        <div className="relative group">
-          <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500 mobile:ml-5">
+          <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500 mobile:ml-3">
             Berita & Artikel <AiFillCaretDown className="inline-block" />
           </button>
           {isDropdownOpen && (

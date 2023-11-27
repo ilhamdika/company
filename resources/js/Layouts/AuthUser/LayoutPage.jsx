@@ -3,9 +3,11 @@ import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import Footer from "./Footer";
 import PrimaryButton from "@/Components/PrimaryButton";
+import { usePage } from "@inertiajs/react";
 
 
 export default function LayoutPage ({children, click}){
+    const {contact} = usePage().props
     
   const [dark, setDark] = useState(true);
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 use Illuminate\Support\Facades\Session;
+use App\Models\Contact;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -24,6 +25,12 @@ class HandleInertiaRequests extends Middleware
         return parent::version($request);
     }
 
+    public function Contact()
+    {
+        $contact = Contact::first();
+        return $contact;
+    }
+
     /**
      * Define the props that are shared by default.
      *
@@ -35,6 +42,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'contact' => $this->Contact(),
             'flashMessage' => [
                 'message' => Session::get('message'),
                 'type' => Session::get('type'),

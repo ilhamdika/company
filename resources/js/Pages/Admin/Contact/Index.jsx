@@ -127,7 +127,7 @@ export default function Index ({contact, flashMessage, auth}){
                         </div>
                     </div>
                     <div className='ml-3'>
-                        <div className="mt-5 items-center">
+                        {/* <div className="mt-5 items-center">
                             <div className="flex">
                                 <FaPhone size={32} />
                                 <h1 className="text-xl font-semibold ml-2">Telephone</h1>
@@ -141,7 +141,7 @@ export default function Index ({contact, flashMessage, auth}){
                                 defaultValue={contact.phone}
                                 handleChange={handleOnChange}
                             />
-                        </div>
+                        </div> */}
                         <div className="mt-5 items-center">
                             <div className="flex">
                                 <FaAddressCard size={32} />

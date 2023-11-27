@@ -29,9 +29,11 @@ class NewsController extends Controller
 
     public function store(Store $request)
     {
+        $randomNumber = mt_rand(1, 100);
+        $randomString = Str::random(10);
         $data = $request->validated();
         $data['image'] = Storage::disk('public')->put('berita', $request->file('image'));
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = $randomNumber . '-' . Str::slug($request->title) . '-' . $randomString;
 
         News::create($data);
 
@@ -52,6 +54,8 @@ class NewsController extends Controller
     {
         // return $request->all();
         try {
+            $randomNumber = mt_rand(1, 100);
+            $randomString = Str::random(10);
             $data = $request->validated();
             if ($request->file('image')) {
                 $data['image'] = Storage::disk('public')->put('berita', $request->file('image'));
@@ -60,7 +64,7 @@ class NewsController extends Controller
                 $data['image'] = $news->image;
             }
 
-            $data['slug'] = Str::slug($request->title);
+            $data['slug'] = $randomNumber . '-' . Str::slug($request->title) . '-' . $randomString;
 
             $news->update($data);
             return Inertia::location(redirect(route('admin.dashboard.news.index'))->with([
