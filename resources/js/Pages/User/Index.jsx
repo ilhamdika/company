@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
 import Card from "@/Components/Card";
 import AOS from 'aos';
+import { format } from "date-fns";
 
 export default function Index({landing ,berita, artikel}) {
     // console.log(berita)
@@ -87,6 +88,7 @@ export default function Index({landing ,berita, artikel}) {
                     key={artikel.id}
                     thumbnail={`/storage/${artikel.image}`}
                     title={artikel.title.split(' ').slice(0, 5).join(' ')}
+                    date={format(new Date(artikel.date), 'dd MMMM yyyy')}
                     description={artikel.content.split(' ').slice(0, 10).join(' ')}
                     href={route('user.artikel_detail', artikel.slug)}
                     />
@@ -133,6 +135,7 @@ export default function Index({landing ,berita, artikel}) {
                     key={berita.id}
                     thumbnail={`/storage/${berita.image}`}
                     title={berita.title.split(' ').slice(0, 5).join(' ')}
+                    date = {format(new Date(berita.date), 'dd MMMM yyyy')}
                     description={berita.content.split(' ').slice(0, 10).join(' ')}
                     href={route('user.berita_detail', berita.slug)}
                     />
