@@ -1,7 +1,7 @@
 import PrimaryButton from "./PrimaryButton";
 import { Link } from "@inertiajs/react";
 
-export default function Card ({className, thumbnail, title, description, href}){
+export default function Card ({className, thumbnail, title, description, href, date}){
     return(
         <div className={`mr-3 ml-3 mobile:h-100 mobile:w-full mobile:my-8` + className }>
             <Link href={href}>
@@ -12,8 +12,12 @@ export default function Card ({className, thumbnail, title, description, href}){
                     <h3 className="text-xl mb-2 dark:text-white font-semibold text-center duration-500 hover:text-blue-500 ">
                     {title}
                 </h3>
+                
                 </Link>
             </div>
+            <p className="font-light text-center mb-1 text-yellow-600">
+                    {date}
+                </p>
             <div className="h-20">
                 <p className="dark:text-white font-light text-center">
                     {description}

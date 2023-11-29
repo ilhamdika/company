@@ -8,7 +8,7 @@ export default function HubungiKami ({contacts}){
     return(
         <LayoutPage>
             <Head title="Hubungi Kami" />
-            <div className="mobile:pt-24">
+            <div className="mobile:pt-24 py-10">
                 <div className="flex justify-center items-center">
                     <h1 className="text-3xl font-semibold dark:text-white">Social Media Kami</h1>
                 </div>

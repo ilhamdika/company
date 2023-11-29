@@ -1,6 +1,7 @@
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 import Card from "@/Components/Card";
 import { Head } from "@inertiajs/react";
+import { format } from "date-fns";
 
 export default function Berita({beritas}) {
     // console.log(beritas)
@@ -32,6 +33,7 @@ export default function Berita({beritas}) {
                         key={berita.id}
                         thumbnail={`/storage/${berita.image}`}
                         title={berita.title.split(' ').slice(0, 5).join(' ')}
+                        date={format(new Date(berita.date), 'dd MMMM yyyy')} // Sesuaikan format sesuai kebutuhan
                         description={berita.content.split(' ').slice(0, 10).join(' ')}
                         href={route('user.berita_detail', berita.slug)}
                         />

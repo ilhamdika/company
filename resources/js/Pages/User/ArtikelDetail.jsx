@@ -2,6 +2,7 @@ import TextWithBreak from "@/Components/TextWithBreak";
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 import { Head } from "@inertiajs/react";
 import Card from "@/Components/Card";
+import { format } from "date-fns";
 
 export default function ArtikelDetail ({artikel, rekomens}){
     const renderTextWithLineBreaks = () => {
@@ -24,7 +25,9 @@ export default function ArtikelDetail ({artikel, rekomens}){
                 </div>
                 <div>
                   <h1 className="text-3xl font-semibold mt-5 dark:text-white mobile:mx-1 mobile:text-2xl mx-10">{artikel.title}</h1>
-                  <p className="item-left justify-start mx-10 mt-3 font-semibold mobile:mx-1 dark:text-white">{artikel.date}</p>
+                  <p className="item-left justify-start mx-10 mt-3 font-semibold mobile:mx-1  text-yellow-600">
+                    {format(new Date(artikel.date), 'dd MMMM yyyy')}
+                  </p>
                   <div className="mx-10 mobile:mx-1">
                       <TextWithBreak 
                       text={artikel.content}

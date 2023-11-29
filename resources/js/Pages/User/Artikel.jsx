@@ -1,6 +1,7 @@
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 import Card from "@/Components/Card";
 import { Head } from "@inertiajs/react";
+import { format } from "date-fns";
 
 export default function Artikel({artikels}) {
     // console.log(artikels)
@@ -25,6 +26,7 @@ export default function Artikel({artikels}) {
                         key={artikel.id}
                         thumbnail={`/storage/${artikel.image}`}
                         title={artikel.title.split(' ').slice(0, 5).join(' ')}
+                        date={format(new Date(artikel.date), 'dd MMMM yyyy')}
                         description={artikel.content.split(' ').slice(0, 10).join(' ')}
                         href={route('user.artikel_detail', artikel.slug)}
                         />

@@ -29,8 +29,8 @@ class UserController extends Controller
     public function index()
     {
         $landing = Landing::first();
-        $berita = News::latest()->take(5)->get();
-        $artikel = Artikel::latest()->take(5)->get();
+        $berita = News::latest()->take(4)->get();
+        $artikel = Artikel::latest()->take(4)->get();
         return Inertia('User/Index', [
             'landing' => $landing,
             'berita' => $berita,
@@ -85,7 +85,7 @@ class UserController extends Controller
 
     public function berita_detail(News $berita)
     {
-        $mungkinSuka = News::inRandomOrder()->limit(5)->get();
+        $mungkinSuka = News::inRandomOrder()->limit(8)->get();
         return Inertia::render('User/BeritaDetail', [
             'berita' => $berita,
             'rekomens' => $mungkinSuka
@@ -103,7 +103,7 @@ class UserController extends Controller
 
     public function artikel_detail(Artikel $artikel)
     {
-        $mungkinSuka = Artikel::inRandomOrder()->limit(5)->get();
+        $mungkinSuka = Artikel::inRandomOrder()->limit(8)->get();
         return Inertia::render('User/ArtikelDetail', [
             'artikel' => $artikel,
             'rekomens' => $mungkinSuka
