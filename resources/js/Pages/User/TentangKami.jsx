@@ -2,7 +2,7 @@ import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
 import { Head } from "@inertiajs/react";
 import TextWithBreak from "@/Components/TextWithBreak";
 
-export default function TentangKami({tentang, struktur_organisasi}) {
+export default function TentangKami({tentang, struktur_organisasi, dukungan_layanan}) {
     // console.log(tentang)
     return (
         <LayoutPage>
@@ -12,10 +12,11 @@ export default function TentangKami({tentang, struktur_organisasi}) {
                 
                 
                 <div className="mt-10">
-                    <h1 className="font-semibold text-3xl dark:text-white">Tentang Perushaan</h1>
+                    <h1 className="font-semibold text-3xl dark:text-white" data-aos="fade-down-right">Tentang Perusahaan</h1>
                     <TextWithBreak
                         text={tentang.tentang_kami}
-                        className="text-lg mt-5 dark:text-white"
+                        className="text-lg mt-5 dark:text-white bg-gray-100 dark:bg-slate-600 rounded-xl px-2"
+                        data-aos="zoom-out-right"
                     />
 
                 <div className="flex justify-center items-center mt-5">
@@ -24,7 +25,7 @@ export default function TentangKami({tentang, struktur_organisasi}) {
                     <h1 className="font-semibold text-3xl dark:text-white">Perusahaan Saat Ini</h1>
                     <TextWithBreak
                         text={tentang.perusahaan_saat_ini}
-                        className="text-lg mt-5 dark:text-white"
+                        className="text-lg mt-5 dark:text-white bg-gray-100 dark:bg-slate-600 rounded-xl px-2"
                     />
                 <div className="flex justify-center items-center mt-5">
                 <table className="mt-3 w-full dark:text-white border border-gray-500">
@@ -61,6 +62,13 @@ export default function TentangKami({tentang, struktur_organisasi}) {
                                 className="text-lg mt-5 dark:text-white"
                             />
                         </div>
+                    </div>
+
+                    <div className="items-left justify bg-gray-100 dark:bg-slate-600 rounded-xl">
+                        <h1 className="font-semibold text-xl dark:text-white mt-2" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" >Bentuk kerjasama dan keuntungan pengguna jasa</h1>
+                        {dukungan_layanan.map((dukungan, i = 1) => (
+                            <p className="mt-2 dark:text-white" key={dukungan.id}><span className="font-semibold">{i+1}. </span>{dukungan.title}</p>
+                        ))}
                     </div>
 
                 </div>

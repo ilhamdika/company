@@ -22,6 +22,7 @@ use App\Models\FisikMental;
 use App\Models\Akademik;
 use App\Models\Keterampilan;
 use App\Models\StrukturOrganisasi;
+use App\Models\BentukKerjasama;
 
 class UserController extends Controller
 {
@@ -119,6 +120,7 @@ class UserController extends Controller
         $fisik_mental = FisikMental::all();
         $akademik = Akademik::all();
         $keterampilan = Keterampilan::all();
+        $bentuk_kerjasama = BentukKerjasama::all();
         return Inertia('User/Karir', [
             'rekruitmens' => $rekruitmen,
             'administrasis' => $administrasi,
@@ -127,7 +129,8 @@ class UserController extends Controller
             'tugas_pokoks' => $tugas_pokok,
             'fisik_mentals' => $fisik_mental,
             'akademiks' => $akademik,
-            'keterampilans' => $keterampilan
+            'keterampilans' => $keterampilan,
+            'bentuk_kerjasamas' => $bentuk_kerjasama
         ]);
     }
 

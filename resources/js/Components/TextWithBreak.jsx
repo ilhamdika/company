@@ -12,7 +12,8 @@ export default function TextWithBreak ({text, className}){
         ));
       };
     return(
-            <p className={className}>
+            <p className={className} data-aos="fade-up"
+            data-aos-duration="3000">
                 {renderTextWithLineBreaks()}
             </p>
     )

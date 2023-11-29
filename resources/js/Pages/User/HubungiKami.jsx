@@ -1,12 +1,13 @@
 import LayoutPage from "@/Layouts/AuthUser/LayoutPage";
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaTelegram, FaVoicemail, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 export default function HubungiKami ({contacts}){
-    console.log(contacts)
+    // console.log(contacts)
     return(
         <LayoutPage>
+            <Head title="Hubungi Kami" />
             <div className="mobile:pt-24">
                 <div className="flex justify-center items-center">
                     <h1 className="text-3xl font-semibold dark:text-white">Social Media Kami</h1>

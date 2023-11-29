@@ -38,7 +38,7 @@ export default function ArtikelDetail ({artikel, rekomens}){
               <div className="grid grid-cols-4 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 rounded-xl mobile:h-auto mt-10" data-aos="fade-down"
      data-aos-easing="linear"
      data-aos-duration="1500">
-                {rekomens.map((berita)=> (
+                {/* {rekomens.map((berita)=> (
                     <Card
                     key={berita.id}
                     thumbnail={`/storage/${berita.image}`}
@@ -46,7 +46,17 @@ export default function ArtikelDetail ({artikel, rekomens}){
                     description={berita.content.split(' ').slice(0, 10).join(' ')}
                     href={route('user.berita_detail', berita.slug)}
                     />
-                ))}
+                ))} */}
+
+{rekomens.map((artikel, i=1) => (
+                        <Card
+                        key={artikel.id}
+                        thumbnail={`/storage/${artikel.image}`}
+                        title={artikel.title.split(' ').slice(0, 5).join(' ')}
+                        description={artikel.content.split(' ').slice(0, 10).join(' ')}
+                        href={route('user.artikel_detail', artikel.slug)}
+                        />
+                    ))}
 
               </div>
             </div>

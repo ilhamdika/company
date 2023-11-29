@@ -59,7 +59,7 @@ export default function Create({auth}) {
                 handleChange={handleOnChange}
             />
 
-            <PrimaryButton className="mt-3 dark:bg-blue-300">
+            <PrimaryButton className="mt-3 dark:bg-blue-300 bg-blue-500">
                 Save
             </PrimaryButton>
         </form>

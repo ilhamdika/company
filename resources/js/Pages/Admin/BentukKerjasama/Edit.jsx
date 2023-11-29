@@ -31,14 +31,14 @@ export default function Edit ({auth, bentuk_kerjasama}){
     }
     return(
         <Authenticated auth={auth}>
-            <Head title="Edit Syarat Rekurtmen" />
+            <Head title="Edit Bentuk Kerjasama" />
             <Link href={route('admin.dashboard.bentuk-kerjasama.index')}>
                 <PrimaryButton className="mt-3 bg-green-500 hover:bg-green-600">
                     Back
                 </PrimaryButton>
             </Link>
             <div>
-                <h1>Edit Syarat Rekurtmen</h1>
+                <h1>Edit Bentuk Kerjasama</h1>
             </div>
 
             <form onSubmit={submit}>

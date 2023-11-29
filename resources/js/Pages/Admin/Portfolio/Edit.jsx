@@ -68,7 +68,7 @@ export default function Edit({auth, portfolio}){
      />
      <InputError message={errors.title} className="mt-2" />
 
-     <PrimaryButton className="mt-3 dark:bg-blue-300">
+     <PrimaryButton className="mt-3 dark:bg-blue-300 bg-blue-500">
          Save
      </PrimaryButton>
  </form>

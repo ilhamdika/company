@@ -29,10 +29,7 @@ export default function Index({landing ,berita, artikel}) {
 
     return <LayoutPage>
         <Head title="Home" />
-        {
-            loading ? <div className="flex justify-center items-center h-screen">
-            <DotLoader color={'#a9dbd2'} loading={loading} size={150} />
-        </div> :
+       
 
         <div className="mobile:pt-14">
             <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 px-10 mobile:px-1">
@@ -142,14 +139,13 @@ export default function Index({landing ,berita, artikel}) {
                 ))}
                 </div>
                 <div className="flex justify-center">
-                    <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-3xl inline-flex items-center hover:border-b-2 hover:border-blue-500" href={route('user.artikel')}>Lihat semua</Link>
+                    <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-3xl inline-flex items-center hover:border-b-2 hover:border-blue-500" href={route('user.berita')}>Lihat semua</Link>
                 </div>
             </div>
 
         </div>
 
         
-        }
             
         </LayoutPage>
     
