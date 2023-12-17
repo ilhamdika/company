@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('globalData', Contact::first());
+        // View::share('globalData', Contact::first());
     }
 }
