@@ -60,7 +60,7 @@ export default function NavigationBar ({text, click}){
         <div className={`navbar ${visible ? 'mobile:block mobile:relative' : 'mobile:hidden'}`}>
 
         <div className='shadow-tablet w-full fixed-absolute top-0 left-0 mobile:fixed mobile:bg-green-500 '>
-      <div className='tablet:flex items-center justify-between py-4 tablet:px-10 px-7'>
+      <div className='tablet:flex items-center justify-between py-4 tablet:px-10 px-7 mobile:px-3'>
       <div className='text-3xl cursor-pointer flex items-center
       dark:text-white'>
         <Link href={route('user.index')}>
@@ -68,7 +68,7 @@ export default function NavigationBar ({text, click}){
         </Link>
       </div>
       
-      <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-4 cursor-pointer tablet:hidden py-4'>
+      <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-5 top-4 cursor-pointer tablet:hidden py-4 mr-3'>
       
       {open ? <IoCloseSharp /> : <BsList />}
       
@@ -93,7 +93,7 @@ export default function NavigationBar ({text, click}){
             </li>
           ))
         }
-       <li className='text-xl tablet:my-0 my-7'>
+       <li className='text-xl tablet:my-0 my-7 mobile:my-7'>
        <div className="relative group">
           <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500 mobile:ml-3">
             Berita & Artikel <AiFillCaretDown className="inline-block" />
