@@ -189,6 +189,21 @@ export default function Index ({contact, flashMessage, auth}){
                         </div>
                         <div className="mt-5 items-center">
                             <div className="flex">
+                                <IoLogoWhatsapp size={32} />
+                                <h1 className="text-xl font-semibold ml-2">WhatsApp2</h1>
+                            </div>
+                            <TextInput
+                                className="dark:text-black justify-center items-center flex text-xl font-thin w-full"
+                                label="WhatsApp2"
+                                name="whatapps2"
+                                type="text"
+                                placeholder="WhatsApp2"
+                                defaultValue={contact.whatapps2}
+                                handleChange={handleOnChange}
+                            />
+                        </div>
+                        <div className="mt-5 items-center">
+                            <div className="flex">
                                 <FaTelegram size={32} />
                                 <h1 className="text-xl font-semibold ml-2">Telegram</h1>
                             </div>

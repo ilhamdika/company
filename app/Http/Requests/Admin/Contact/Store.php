@@ -34,6 +34,7 @@ class Store extends FormRequest
             'address' => 'nullable|string',
             'linkedin' => 'nullable|string|max:255',
             'whatapps' => 'nullable|string|max:255',
+            'whatapps2' => 'nullable|string|max:255',
             'twitter' => 'nullable|string|max:255',
             'telegram' => 'nullable|string|max:255',
         ];

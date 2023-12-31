@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('linkedin');
             $table->string('whatapps');
+            $table->string('whatapps2');
             $table->string('twitter');
             $table->string('telegram');
             $table->timestamps();

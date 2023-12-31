@@ -18,6 +18,7 @@ class Contact extends Model
         'address',
         'linkedin',
         'whatapps',
+        'whatapps2',
         'twitter',
         'telegram'
     ];

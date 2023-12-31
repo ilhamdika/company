@@ -24,6 +24,7 @@ class ContactTableSeeder extends Seeder
             'address' => 'Jl. Raya ITS, Keputih, Kec. Sukolilo, Kota SBY, Jawa Timur 60111',
             'linkedin' => 'https://www.linkedin.com/company/himasi-its/',
             'whatapps' => 'https://wa.me/6281234567890',
+            'whatapps2' => 'https://wa.me/6281234567890',
             'twitter' => 'https://twitter.com/himasipolines',
             'telegram' => 'https://t.me/himasipolines',
         ]);
