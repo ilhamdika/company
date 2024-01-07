@@ -19,6 +19,10 @@ export default function HubungiKami ({contacts}){
                             <FaWhatsapp className="text-2xl"/>
                             <h1 className="text-2xl font-semibold">WhatsApp</h1>
                         </a>
+                        <a className="flex justify-center items-center bg-blue-300 w-72 rounded-xl mobile:w-full transition duration-500 hover:text-white mt-4" target="blank" href={contacts.whatapps2}>
+                            <FaWhatsapp className="text-2xl"/>
+                            <h1 className="text-2xl font-semibold">WhatsApp 2</h1>
+                        </a>
                         <a className="flex justify-center items-center bg-blue-300 w-72 rounded-xl mobile:w-full transition duration-500 hover:text-white mt-4" target="blank" href={contacts.email}>
                             <MdOutlineEmail  className="text-2xl"/>
                             <h1 className="text-2xl font-semibold">Email</h1>
