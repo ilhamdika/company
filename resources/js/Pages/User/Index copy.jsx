@@ -31,36 +31,37 @@ export default function Index({landing ,berita, artikel}) {
     return <LayoutPage>
         <Head title="Home" />
        
-            <div className="w-full desktop:px-10 laptop:px-10">
-                <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-10 mobile:mt-20">
-                    <div className="">
-                        <div className="flex items-center justify-center pt-10 pb-10">
-                            <div className=" dark:text-white pt-10 pb-10 rounded-md">
-                                <h1 className="font-semibold text-4xl" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" >{landing.title_hero}</h1>
-                                <p className="mt-10">{landing.title_hero_sub}</p>
-                                <div className="pt-10" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                                <Link href={route('user.hubungi-kami')}>
-                                    <PrimaryButton className="bg-blue-700 w-40 justify-center h-10 rounded-2xl">Hubungi Kami</PrimaryButton>
-                                </Link>
-                                </div>
+
+        <div className="mobile:pt-14">
+            <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 px-10 mobile:px-1">
+                    <div className="flex items-center justify-center pt-10 pb-10">
+                        <div className=" dark:text-white pt-10 pb-10 rounded-md">
+                            <h1 className="font-semibold text-4xl" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" >{landing.title_hero}</h1>
+                            <p className="mt-10">{landing.title_hero_sub}</p>
+                            <div className="pt-10" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                            <Link href={route('user.hubungi-kami')}>
+                                <PrimaryButton className="bg-blue-700 w-40 justify-center h-10 rounded-2xl">Hubungi Kami</PrimaryButton>
+                            </Link>
                             </div>
                         </div>
                     </div>
-                    <div className="">
-                        <img src='images/Security On.gif' alt="Elemen Atas" className="px-3 w-auto h-auto"/>
+                    <div className='mt-10 mobile:h-100 mobile:w-full'>
+                            <img src="/images/Security On.gif" alt="Elemen Atas" className="laptop:ml-14 w-auto h-auto"/>
                     </div>
-                </div>
+            </div>
 
-                <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 bg-gray-100 dark:bg-slate-600 rounded-xl">
+
+            <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 bg-gray-100 dark:bg-slate-600 rounded-xl">
                     <div className="flex items-center justify-center pt-10 pb-10 px-1">
                         <h1 className="dark:text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">{landing.motto_sub}</h1>
                     </div>
                     <div className=' pt-10 pb-10 px-1'>
                         <h1 className="font-semibold text-4xl dark:text-white" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="500">{landing.motto_title}</h1>
                     </div>
-                </div>
-                
-                <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 dekstop:grid-cols-4 gap-4" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            </div>
+
+
+            <div className="grid grid-cols-4 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 rounded-xl mobile:h-auto mt-10" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 {artikel.map((artikel, i=1) => (
                     <Card
                     key={artikel.id}
@@ -71,42 +72,46 @@ export default function Index({landing ,berita, artikel}) {
                     href={route('user.artikel_detail', artikel.slug)}
                     />
                 ))}
-                </div>
-                <div className="flex justify-center">
+            </div>
+            <div className="flex justify-center">
                     <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-3xl inline-flex items-center hover:border-b-2 hover:border-blue-500" href={route('user.artikel')}>Lihat semua</Link>
-                </div>
+            </div>
 
-                <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 bg-gray-100 dark:bg-slate-600 rounded-xl">
-                    <div className="flex items-center justify-center pt-10 pb-10 px-1">
-                        <h1 className="font-semibold text-4xl dark:text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">{landing.branding_title}</h1>
+
+            <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-10 bg-gray-100 dark:bg-slate-600 rounded-xl">
+                    <div className="flex items-center justify-center">
+                        <h1 className="font-semibold text-5xl dark:text-white" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">{landing.branding_title}</h1>
                     </div>
                     <div className=' pt-10 pb-10 px-1'>
-                        <p className="dark:text-white" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="500">{landing.branding_sub}</p>
+                        <h1 className="dark:text-white" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">{landing.branding_sub}</h1>
                         <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-xl inline-flex items-center hover:border-b-2 hover:border-blue-500" href={route('user.tentang-kami')}>Lebih lanjut</Link>
                     </div>
-                </div>
             </div>
 
             <div className="mt-5">
                 <h1 className="font-semibold text-3xl dark:text-white">Apa yang baru dari Dakara?</h1>
                 <p className="font-light dark:text-white mt-3">Cari tahu lebih lanjut tentang aktivitas kami.</p>
 
-                <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 dekstop:grid-cols-4 gap-4" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-                {berita.map((berita, i=1) => (
+                <div className="grid grid-cols-4 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 rounded-xl mobile:h-auto mt-10" data-aos="fade-down" data-aos-easing="linear"data-aos-duration="1500">
+                {berita.map((berita)=> (
                     <Card
                     key={berita.id}
                     thumbnail={`/storage/${berita.image}`}
                     title={berita.title.split(' ').slice(0, 5).join(' ')}
-                    date={format(new Date(berita.date), 'dd MMMM yyyy')}
+                    date = {format(new Date(berita.date), 'dd MMMM yyyy')}
                     description={berita.content.split(' ').slice(0, 10).join(' ')}
-                    href={route('user.artikel_detail', berita.slug)}
+                    href={route('user.berita_detail', berita.slug)}
                     />
                 ))}
                 </div>
-                <div className="flex justify-center mb-10">
+                <div className="flex justify-center">
                     <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-3xl inline-flex items-center hover:border-b-2 hover:border-blue-500" href={route('user.berita')}>Lihat semua</Link>
                 </div>
             </div>
+
+        </div>
+
+        
             
         </LayoutPage>
     
