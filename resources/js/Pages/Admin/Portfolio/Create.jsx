@@ -1,4 +1,4 @@
-import Authenticated from "@/Layouts/AuthAdmin";
+import Authenticated from "@/Layouts/AuthAdmin/Index";
 import TextInput from "@/Components/TextInput"
 import ImageUploader from "@/Components/ImageUploader"
 import PrimaryButton from "@/Components/PrimaryButton"

@@ -1,4 +1,4 @@
-import Authenticated from "@/Layouts/AuthAdmin";
+import Authenticated from "@/Layouts/AuthAdmin/Index";
 import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
 import PrimaryButton from "@/Components/PrimaryButton";

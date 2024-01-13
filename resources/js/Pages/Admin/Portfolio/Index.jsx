@@ -1,4 +1,4 @@
-import Authenticated from "@/Layouts/AuthAdmin";
+import Authenticated from "@/Layouts/AuthAdmin/Index";
 import PrimaryButton from "@/Components/PrimaryButton"
 import { Head,  useForm } from '@inertiajs/react';
 import { useState, useEffect } from "react";

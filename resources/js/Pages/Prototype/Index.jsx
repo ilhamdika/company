@@ -1,4 +1,4 @@
-import Authenticated from "@/Layouts/AuthAdmin";
+import Authenticated from "@/Layouts/AuthAdmin/Index";
 
 export default function Index() {
     return(
