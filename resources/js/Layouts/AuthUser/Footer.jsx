@@ -10,6 +10,8 @@ export default function Footer (){
 
     const no = contact.whatapps;
     const noWa = no.substring(14);
+    const no2 = contact.whatapps2;
+    const noWa2 = no2.substring(14);
     return(
         <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3">
             <div className='grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-2 mt-3 px-5 py-10 mobile:py-2'>
@@ -46,6 +48,27 @@ export default function Footer (){
                                 <p>+{noWa}</p>
                             </div>
                         </a>
+                        <a target='blank' href={contact.whatapps2}>
+                            <div className='flex mt-5'>
+                                <FaWhatsapp size="24" className="mr-3"/>
+                                <p>+{noWa2}</p>
+                            </div>
+                        </a>
+                        <a target='blank' href='https://wa.me/6281292025833'>
+                            <div className='flex mt-5'>
+                                <FaWhatsapp size="24" className="mr-3"/>
+                                <p>+6281292025833</p>
+                            </div>
+                        </a>
+                        <a target='blank' href='https://wa.me/6281210688511'>
+                            <div className='flex mt-5'>
+                                <FaWhatsapp size="24" className="mr-3"/>
+                                <p>+6281210688511</p>
+                            </div>
+                        </a>
+                        
+                    </div>
+                    <div className='justify-center items-center laptop:pl-10 desktop:pl-10'>
                         <div className='flex py-5'>
                             <Link href={contact.instagram}>
                                 <FaInstagram size="30" className="mr-3"/>
@@ -57,8 +80,6 @@ export default function Footer (){
                                 <CiLinkedin size="30" className="mr-3"/>
                             </Link>
                         </div>
-                    </div>
-                    <div className='flex justify-center items-center'>
                         <Link href={route('user.index')}>
                             <img src="/images/logo.png" alt="Logo" className="w-24 h-24"/>
                         </Link>
