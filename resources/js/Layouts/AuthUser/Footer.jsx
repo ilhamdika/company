@@ -42,7 +42,7 @@ export default function Footer (){
                             <FaPhoneAlt size="24" className="mr-3"/>
                             <p>{contact.phone}</p>
                         </div>
-                        <a target='blank' href={contact.whatapps}>
+                        {/* <a target='blank' href={contact.whatapps}>
                             <div className='flex mt-5'>
                                 <FaWhatsapp size="24" className="mr-3"/>
                                 <p>+{noWa}</p>
@@ -53,19 +53,19 @@ export default function Footer (){
                                 <FaWhatsapp size="24" className="mr-3"/>
                                 <p>+{noWa2}</p>
                             </div>
-                        </a>
+                        </a> */}
                         <a target='blank' href='https://wa.me/6281292025833'>
                             <div className='flex mt-5'>
                                 <FaWhatsapp size="24" className="mr-3"/>
                                 <p>+6281292025833</p>
                             </div>
                         </a>
-                        <a target='blank' href='https://wa.me/6281210688511'>
+                        {/* <a target='blank' href='https://wa.me/6281210688511'>
                             <div className='flex mt-5'>
                                 <FaWhatsapp size="24" className="mr-3"/>
                                 <p>+6281210688511</p>
                             </div>
-                        </a>
+                        </a> */}
                         
                     </div>
                     <div className='justify-center items-center laptop:pl-10 desktop:pl-10'>

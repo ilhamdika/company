@@ -99,7 +99,7 @@ export default function Index({landing ,berita, artikel}) {
                         title={berita.title.split(' ').slice(0, 5).join(' ')}
                         date={format(new Date(berita.date), 'dd MMMM yyyy')}
                         description={berita.content.split(' ').slice(0, 10).join(' ')}
-                        href={route('user.artikel_detail', berita.slug)}
+                        href={route('user.berita_detail', berita.slug)}
                         />
                     ))}
                     </div>
