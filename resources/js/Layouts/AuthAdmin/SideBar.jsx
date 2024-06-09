@@ -84,7 +84,7 @@ export default function SideBar({ click, icon, toggleSidebar, isOpen, auth }) {
                   <Link href={route(Menu.link)} onClick={() => handleClick(Menu.link)}>
                     <li
                         key={index}
-                        className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? 'mt-9' : 'mt-2'} ${Menu.link === activeMenu ? 'bg-blue-500' : ''} ${index === 0 && 'bg-light-white'}`}
+                        className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? 'mt-9' : 'mt-2'} ${Menu.link === activeMenu ? 'bg-blue-500' : 'hover:bg-blue-300'} ${index === 0 && 'bg-light-white'} `}
                     >
                         <Link href={route(Menu.link)} onClick={() => handleClick(Menu.link)}>
                             {Menu.src}
