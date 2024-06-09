@@ -81,6 +81,7 @@ export default function SideBar({ click, icon, toggleSidebar, isOpen, auth }) {
             </div>
             <ul className="pt-6">
                 {Menus.map((Menu, index) => (
+                  <Link href={route(Menu.link)} onClick={() => handleClick(Menu.link)}>
                     <li
                         key={index}
                         className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? 'mt-9' : 'mt-2'} ${Menu.link === activeMenu ? 'bg-blue-500' : ''} ${index === 0 && 'bg-light-white'}`}
@@ -92,6 +93,7 @@ export default function SideBar({ click, icon, toggleSidebar, isOpen, auth }) {
                             {Menu.name}
                         </Link>
                     </li>
+                  </Link>
                 ))}
             </ul>
             <div className="absolute bottom-0 mb-5">
