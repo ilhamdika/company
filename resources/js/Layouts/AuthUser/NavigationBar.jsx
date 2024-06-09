@@ -6,6 +6,20 @@ import { IoCloseSharp } from "react-icons/io5";
 import { AiFillCaretDown } from "react-icons/ai";
 
 export default function NavigationBar ({text, click}){
+    const [activeMenu, setActiveMenu] = useState('user.index');
+
+    const handleClick = (menuLink) => {
+      setActiveMenu(menuLink);
+      localStorage.setItem('activeMenu', menuLink);
+    };
+
+    useEffect(() => {
+      const storedActiveMenu = localStorage.getItem('activeMenu');
+      if (storedActiveMenu) {
+          setActiveMenu(storedActiveMenu);
+      }
+    }, []);
+
     let Menu =[
         {
           name:"Home",
@@ -56,6 +70,8 @@ export default function NavigationBar ({text, click}){
     setDropdownOpen(!isDropdownOpen);
   };
 
+  const isBeritaOrArtikelActive = activeMenu === 'user.berita' || activeMenu === 'user.artikel';
+
     return (
         <div className={`navbar ${visible ? 'mobile:block mobile:relative' : 'mobile:hidden'}`}>
 
@@ -86,22 +102,22 @@ export default function NavigationBar ({text, click}){
        </li> */}
         {
           Menu.map((menu)=>(
-            <li key={menu.name} className='text-xl tablet:my-0 my-7'>
-              <Link href={route(menu.link)} className='dark:text-white text-black hover:text-gray-400 duration-500 ml-2 mr-5'>
+            <li key={menu.name} className='text-xl tablet:my-0 my-7' onClick={() => handleClick(menu.link)}>
+              <Link href={route(menu.link)} className={`dark:text-white text-black hover:text-gray-400 duration-500 ml-2 mr-5 ${menu.link === activeMenu ? 'font-semibold border-b-2' : 'hover:border-b-2'}`}>
                 {menu.name}
               </Link>
             </li>
           ))
         }
-       <li className='text-xl tablet:my-0 my-7 mobile:my-7'>
+       <li className={`text-xl tablet:my-0 my-7 mobile:my-7 ${'user.berita' === activeMenu  || 'user.artikel' ===  activeMenu ? 'font-semibold border-b-2' : 'hover:border-b-2'}`}>
        <div className="relative group">
           <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500 mobile:ml-3">
             Berita & Artikel <AiFillCaretDown className="inline-block" />
           </button>
           {isDropdownOpen && (
             <div className="absolute mobile:relative mobile:ml-5 mobile:border-none p-2 rounded-md border">
-              <Link href={route('user.berita')} className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Berita</Link>
-              <Link href={route('user.artikel')} className="block text-black dark:text-white hover:bg-gray-700 px-2 py-1">Artikel</Link>
+              <Link href={route('user.berita')} className={`block text-black dark:text-white hover:bg-gray-700 px-2 py-1 ${'user.berita' === activeMenu ? 'font-semibold' : 'font-light'}`} onClick={() => handleClick('user.berita')}>Berita</Link>
+              <Link href={route('user.artikel')} className={`block text-black dark:text-white hover:bg-gray-700 px-2 py-1 ${'user.artikel' === activeMenu ? 'font-semibold' : 'font-light'}`} onClick={() => handleClick('user.artikel')}>Artikel</Link>
             </div>
           )}
         </div>
