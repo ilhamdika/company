@@ -19,7 +19,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $porfolios = Portfolio::all();
+        $porfolios = Portfolio::orderBy('created_at', 'desc')->paginate(10);
         return Inertia('Admin/Portfolio/Index', [
             'portfolios' => $porfolios
         ]);
