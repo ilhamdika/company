@@ -62,7 +62,7 @@ export default function Create(){
                     value="Tanggal"
                 />
                 <TextInput
-                    className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full"
+                    className="dark:text-black justify-center items-left flex text-2xl font-thin mt-2"
                     label="Tanggal"
                     name="date"
                     type="date"
