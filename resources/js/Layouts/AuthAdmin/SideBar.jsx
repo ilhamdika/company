@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GrUserAdmin } from "react-icons/gr";
 import { MdDashboard } from "react-icons/md";
 import { AiFillAlert, AiOutlineFileText } from "react-icons/ai";
@@ -10,8 +10,24 @@ import { CiLogout } from "react-icons/ci";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { AiOutlineClear } from "react-icons/ai";
 import { IoIosContact } from "react-icons/io";
+import { set } from "lodash";
 
 export default function SideBar({ click, icon, toggleSidebar, isOpen, auth }) {
+    const [activeMenu, setActiveMenu] = useState('admin.dashboard.landing.index');
+
+    const handleClick = (menuLink) => {
+      setActiveMenu(menuLink);
+      localStorage.setItem('activeMenu', menuLink);
+    };
+
+    useEffect(() => {
+      const storedActiveMenu = localStorage.getItem('activeMenu');
+      if (storedActiveMenu) {
+          setActiveMenu(storedActiveMenu);
+      }
+    }, []); 
+
+    
     const Menus = [
         {
             name: "Landing",
@@ -67,12 +83,12 @@ export default function SideBar({ click, icon, toggleSidebar, isOpen, auth }) {
                 {Menus.map((Menu, index) => (
                     <li
                         key={index}
-                        className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-light-white'}`}
+                        className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? 'mt-9' : 'mt-2'} ${Menu.link === activeMenu ? 'bg-blue-500' : ''} ${index === 0 && 'bg-light-white'}`}
                     >
-                        <Link href={route(Menu.link)}>
+                        <Link href={route(Menu.link)} onClick={() => handleClick(Menu.link)}>
                             {Menu.src}
                         </Link>
-                        <Link href={route(Menu.link)} className={`w-10 ${!isOpen && 'hidden'} origin-left duration-200 text-black dark:text-white`}>
+                        <Link href={route(Menu.link)} className={`w-10 ${!isOpen && 'hidden'} origin-left duration-200 text-black dark:text-white`} onClick={() => handleClick(Menu.link)}>
                             {Menu.name}
                         </Link>
                     </li>
