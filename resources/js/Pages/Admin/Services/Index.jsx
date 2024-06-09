@@ -23,10 +23,6 @@ export default function Index({auth, flashMessage, services}) {
     return(
         <Authenticated auth={auth}>
             <Head title="Services" />
-         {
-                loading ? <div className="flex justify-center items-center h-screen">
-                    <DotLoader color={'#161616'} loading={loading} size={150} />
-                </div> :
             <div className="justify-center items-center h-screen">
                 <h1 className="text-3xl font-bold my-3 dark:text-white">Welcome Services</h1>
                 <PrimaryButton className="bg-green-500 dark:bg-green-500">
@@ -88,7 +84,6 @@ export default function Index({auth, flashMessage, services}) {
 						</tbody>
 					</table>
             </div>
-}
         </Authenticated>
     )
 }

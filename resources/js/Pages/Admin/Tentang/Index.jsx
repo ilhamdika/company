@@ -43,20 +43,9 @@ export default function Index({about, flashMessage, auth}) {
         },2000)
     },[])
 
-//     const [editorData, setEditorData] = useState('');
-
-//   const handleEditorChange = (event, editor) => {
-//     const data = editor.getData();
-//     setEditorData(data);
-//   };
-    
     return(
         <Authenticated auth={auth}>
             <Head title="Tentang Kami" />
-         {
-                loading ? <div className="flex justify-center items-center h-screen">
-                    <DotLoader color={'#161616'} loading={loading} size={150} />
-                </div> :
             <div className="justify-center items-center h-screen">
 
                 <h1 className="text-3xl font-bold my-3 dark:text-white">Struktur Organisasi</h1>
@@ -197,7 +186,6 @@ export default function Index({about, flashMessage, auth}) {
                         
                 </form>
                 </div>
-}
         </Authenticated>
     )
 }
