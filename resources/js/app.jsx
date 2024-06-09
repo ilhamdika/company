@@ -17,6 +17,6 @@ createInertiaApp({
     },
     progress: {
         color: '#F10EBB',
-        thickness: '10',
+        thickness: 20,
     },
 });
