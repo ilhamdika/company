@@ -84,7 +84,7 @@ export default function Index({landing ,berita, artikel}) {
                 </div>
 
                 <div id="wave-bg-container2" className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 dark:bg-slate-600 px-2">
-                    <div className="py-2">
+                    <div className="py-2 px-10">
                         <div className="flex justify-center">
                             <img src='/images/heroThumbnail.png' alt="Elemen Atas" className="px-3 w-60 h-100"/>
                         </div>
