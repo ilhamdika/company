@@ -77,9 +77,12 @@ export default function Index({landing ,berita, artikel}) {
                     <Link className="bg-blue-600 mt-10 border-b w-40 justify-center h-10 rounded-3xl inline-flex items-center hover:border-b-2 hover:border-blue-500" href={route('user.artikel')}>Lihat semua</Link>
                 </div>
 
-                <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 bg-gray-100 dark:bg-slate-600 rounded-xl">
+                <div className="grid grid-cols-3 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-3 bg-gray-100 dark:bg-slate-600 rounded-xl">
                     <div className="flex items-center justify-center pt-10 pb-10 px-1">
-                        <h1 className="font-semibold text-4xl dark:text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">{landing.branding_title}</h1>
+                        <img src="/images/indonesiaMap.png" alt="Elemen Atas" className="px-3 w-auto h-auto"/>
+                    </div>
+                    <div className="flex items-center justify-center pt-10 pb-10 px-1">
+                        <h1 className="font-semibold text-2xl dark:text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">{landing.branding_title}</h1>
                     </div>
                     <div className=' pt-10 pb-10 px-1'>
                         <p className="dark:text-white" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="500">{landing.branding_sub}</p>
