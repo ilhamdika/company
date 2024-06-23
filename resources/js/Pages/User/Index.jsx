@@ -88,10 +88,10 @@ export default function Index({landing ,berita, artikel}) {
                         <div className="flex justify-center">
                             <img src='/images/heroThumbnail.png' alt="Elemen Atas" className="px-3 w-60 h-100"/>
                         </div>
-                        <h1 className="dark:text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">{landing.motto_sub}</h1>
+                        <h1 className="dark:text-white">{landing.motto_sub}</h1>
                     </div>
                     <div className='flex items-center justify-center'>
-                        <h1 className="font-semibold text-4xl dark:text-white" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="500">{landing.motto_title}</h1>
+                        <h1 className="font-light text-3xl dark:text-white border border-2 border-black">{landing.motto_title}</h1>
                     </div>
                 </div>
                 <div className="mobile:my-10">
