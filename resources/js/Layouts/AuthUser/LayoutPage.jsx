@@ -19,8 +19,8 @@ export default function LayoutPage ({children, click}){
     
     return(
         <>
-        <div className="dark:bg-dark">
-            <div className="mr-10 ml-10">
+        <div className="dark:bg-dark bg-green-200">
+            <div className="">
                 {/* Navbar */}
                 <NavigationBar
                 
