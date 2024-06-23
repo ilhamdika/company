@@ -98,15 +98,15 @@ export default function NavigationBar ({text, click}){
                   {
                     Menu.map((menu)=>(
                       <li key={menu.name} className='text-xl tablet:my-0 my-7' onClick={() => handleClick(menu.link)}>
-                        <Link href={route(menu.link)} className={`dark:text-white text-black hover:text-gray-400 duration-500 ml-2 mr-5 ${menu.link === activeMenu ? 'font-semibold border-b-2' : 'hover:border-b-2'}`}>
+                        <Link href={route(menu.link)} className={`dark:text-white text-black hover:text-cyan-400 duration-500 ml-2 mr-5 ${menu.link === activeMenu ? 'font-semibold border-b-2 border-black' : 'hover:border-b-2'}`}>
                           {menu.name}
                         </Link>
                       </li>
                     ))
                   }
-                  <li className={`text-xl tablet:my-0 my-7 mobile:my-7 ${'user.berita' === activeMenu  || 'user.artikel' ===  activeMenu ? 'font-semibold border-b-2' : 'hover:border-b-2'}`}>
+                  <li className={`text-xl tablet:my-0 my-7 mobile:my-7 ${'user.berita' === activeMenu  || 'user.artikel' ===  activeMenu ? 'font-semibold border-b-2 border-black' : 'hover:border-b-2'}`}>
                     <div className="relative group">
-                      <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-gray-400 duration-500 mobile:ml-3">
+                      <button onClick={toggleDropdown} className="dark:text-white text-black hover:text-cyan-400 duration-500 mobile:ml-3">
                         Berita & Artikel <AiFillCaretDown className="inline-block" />
                       </button>
                       {isDropdownOpen && (
