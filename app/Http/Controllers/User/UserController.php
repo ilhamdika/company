@@ -77,9 +77,18 @@ class UserController extends Controller
 
     public function berita()
     {
-        $berita = News::orderBy('created_at', 'desc')->get();
-        return Inertia('User/Berita', [
-            'beritas' => $berita
+        $berita = News::orderBy('created_at', 'desc')->paginate(8);
+
+        // Mendapatkan URL untuk halaman pertama
+        $firstPageUrl = $berita->url(1);
+        
+        // Mendapatkan URL untuk halaman terakhir
+        $lastPageUrl = $berita->url($berita->lastPage());
+
+        return inertia('User/Berita', [
+            'beritas' => $berita,
+            'firstPageUrl' => $firstPageUrl,
+            'lastPageUrl' => $lastPageUrl,
         ]);
     }
 

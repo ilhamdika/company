@@ -7,7 +7,7 @@ export default function TentangKami({tentang, struktur_organisasi, dukungan_laya
     return (
         <LayoutPage>
             <Head title="Tentang Kami" />
-            <div className="mobile:pt-36">
+            <div className="mobile:pt-36 px-2">
                 <h1 className="font-semibold text-4xl flex justify-center items-center dark:text-white">Tentang Kami</h1>
                 
                 

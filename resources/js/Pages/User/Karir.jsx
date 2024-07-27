@@ -7,7 +7,7 @@ export default function Karir({rekruitmens, administrasis, mental_ideologis, kem
     return (
         <LayoutPage>
             <Head title="Karir" />
-            <div className="w-full desktop:px-10 laptop:px-10">
+            <div className="w-full desktop:px-10 laptop:px-10 mobile:px-2">
                 <div className="grid grid-cols-2 laptop:flex-row dekstop:flex-row mobile:grid-cols-1 mt-10 mobile:mt-20">
                     <div className="">
                         <img src="/images/join.png" alt="Elemen Atas" className="px-3 w-auto h-auto"/>

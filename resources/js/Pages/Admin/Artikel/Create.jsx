@@ -55,7 +55,7 @@ export default function Create({auth}){
                 />
                 <InputError message={errors.date} className="mt-2" />
                 <TextInput
-                    className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2 w-full"
+                    className="dark:text-black justify-center items-center flex text-2xl font-thin mt-2"
                     label="Tanggal"
                     name="date"
                     type="date"

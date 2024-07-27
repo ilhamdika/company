@@ -50,10 +50,6 @@ export default function Index({auth, landing, flashMessage}) {
     return(
         <Authenticated auth={auth}>
             <Head title="Landing Page" />
-         {
-                loading ? <div className="flex justify-center items-center h-screen">
-                    <DotLoader color={'#161616'} loading={loading} size={150} />
-                </div> :
                 <div>
                     {flashMessage?.message && (
                 <FlashMessage message={flashMessage.message}/>
@@ -181,9 +177,6 @@ export default function Index({auth, landing, flashMessage}) {
                     </div>
                     </form>
                 </div>
-
-                
-}
         </Authenticated>
     )
 }
