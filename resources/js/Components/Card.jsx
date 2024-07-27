@@ -3,9 +3,9 @@ import { Link } from "@inertiajs/react";
 
 export default function Card ({className, thumbnail, title, description, href, date}){
     return(
-        <div className={`mr-3 ml-3 mobile:h-100 mobile:w-full mobile:my-8 border border-gray-300 rounded-lg shadow-md` + className }>
+        <div className={`mr-3 ml-3 mobile:h-100 mobile:w-100 mobile:my-8 border border-gray-300 rounded-lg shadow-md` + className }>
             <Link href={href}>
-                <img src={thumbnail} alt="Gambar" className="w-full mb-4 h-56 justify-center mobile:h-56 mobile:w-72 mobile:mx-auto " />
+                <img src={thumbnail} alt="Gambar" className="w-full mb-4 h-56 justify-center mobile:h-56 mobile:w-72 mobile:mx-auto py-5" />
             </Link>
             <div className="h-20">
                 <Link href={href}>
